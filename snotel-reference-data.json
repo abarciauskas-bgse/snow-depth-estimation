@@ -1,0 +1,4478 @@
+{
+  "dcos": [
+    {
+      "code": "AK",
+      "name": "ALASKA"
+    },
+    {
+      "code": "CO",
+      "name": "COLORADO"
+    },
+    {
+      "code": "GC",
+      "name": "SCAN"
+    },
+    {
+      "code": "ID",
+      "name": "IDAHO"
+    },
+    {
+      "code": "MT",
+      "name": "MONTANA"
+    },
+    {
+      "code": "OR",
+      "name": "OREGON"
+    },
+    {
+      "code": "UN",
+      "name": "UNKNOWN"
+    },
+    {
+      "code": "UT",
+      "name": "UTAH"
+    },
+    {
+      "code": "WC",
+      "name": "NWCC"
+    }
+  ],
+  "durations": [
+    {
+      "code": "1",
+      "name": "1 Calendar Year",
+      "durationMinutes": "525600"
+    },
+    {
+      "code": "C",
+      "name": "15 Minutes",
+      "durationMinutes": "15"
+    },
+    {
+      "code": "D",
+      "name": "1 Day",
+      "durationMinutes": "1440"
+    },
+    {
+      "code": "E",
+      "name": "BIMONTHLY",
+      "durationMinutes": "87840"
+    },
+    {
+      "code": "H",
+      "name": "1 Hour",
+      "durationMinutes": "60"
+    },
+    {
+      "code": "I",
+      "name": "Instantaneous",
+      "durationMinutes": "0"
+    },
+    {
+      "code": "K",
+      "name": "12 Hour",
+      "durationMinutes": "720"
+    },
+    {
+      "code": "M",
+      "name": "1 Month",
+      "durationMinutes": "43920"
+    },
+    {
+      "code": "Q",
+      "name": "6 Hour",
+      "durationMinutes": "360"
+    },
+    {
+      "code": "S",
+      "name": "Seasonal -- varies",
+      "durationMinutes": "175680"
+    },
+    {
+      "code": "V",
+      "name": "5 minutes",
+      "durationMinutes": "5"
+    },
+    {
+      "code": "X",
+      "name": "NA",
+      "durationMinutes": "-1"
+    },
+    {
+      "code": "Y",
+      "name": "1 Year",
+      "durationMinutes": "525600"
+    }
+  ],
+  "elements": [
+    {
+      "code": "TAVG",
+      "name": "AIR TEMPERATURE AVERAGE",
+      "physicalElementName": "air temperature",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Air Temperature - Sub-Hourly Sampling Frequency",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TMAX",
+      "name": "AIR TEMPERATURE MAXIMUM",
+      "physicalElementName": "air temperature",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Air Temperature - Sub-Hourly Sampling Frequency",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TMIN",
+      "name": "AIR TEMPERATURE MINIMUM",
+      "physicalElementName": "air temperature",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "description": "Minimum Air Temperature - Sub-Hourly Sampling Frequency",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TOBS",
+      "name": "AIR TEMPERATURE OBSERVED",
+      "physicalElementName": "air temperature",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Instantaneously Observed Air Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "PRES",
+      "name": "BAROMETRIC PRESSURE",
+      "physicalElementName": "barometric pressure",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Barometric Pressure",
+      "storedUnitCode": "inch_Hg",
+      "englishUnitCode": "inch_Hg",
+      "metricUnitCode": "mbar"
+    },
+    {
+      "code": "BATT",
+      "name": "BATTERY",
+      "physicalElementName": "battery",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Battery Voltage",
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "BATV",
+      "name": "BATTERY AVERAGE",
+      "physicalElementName": "battery",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "BATX",
+      "name": "BATTERY MAXIMUM",
+      "physicalElementName": "battery",
+      "functionCode": "X",
+      "dataPrecision": 2,
+      "description": "Maximum Battery Voltage",
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "BATN",
+      "name": "BATTERY MINIMUM",
+      "physicalElementName": "battery",
+      "functionCode": "N",
+      "dataPrecision": 2,
+      "description": "Minimum Battery Voltage",
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "ETIB",
+      "name": "BATTERY-ETI PRECIP GUAGE",
+      "physicalElementName": "battery-eti precip guage",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "COND",
+      "name": "CONDUCTIVITY",
+      "physicalElementName": "conductivity",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Soil Conductivity",
+      "storedUnitCode": "umho",
+      "englishUnitCode": "umho",
+      "metricUnitCode": "umho"
+    },
+    {
+      "code": "DPTP",
+      "name": "DEW POINT TEMPERATURE",
+      "physicalElementName": "dew point temperature",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Dew Point Temperature of the Air",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "SRDOX",
+      "name": "DISCHARGE MANUAL/EXTERNAL ADJUSTED MEAN",
+      "physicalElementName": "discharge - river adjusted manual/external",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Streamflow Discharge adjusted for significant human regulation.  Non-NRCS adjustment calculations",
+      "storedUnitCode": "cfs",
+      "englishUnitCode": "cfs",
+      "metricUnitCode": "m3/s"
+    },
+    {
+      "code": "DISO",
+      "name": "DISSOLVED OXYGEN",
+      "physicalElementName": "dissolved oxygen",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "storedUnitCode": "mgram/l",
+      "englishUnitCode": "mgram/l",
+      "metricUnitCode": "mgram/l"
+    },
+    {
+      "code": "DISP",
+      "name": "DISSOLVED OXYGEN - PERCENT SATURATION",
+      "physicalElementName": "dissolved oxygen percent saturation",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "DIVD",
+      "name": "DIVERSION DISCHARGE OBSERVED MEAN",
+      "physicalElementName": "discharge - canal diversion",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Mean Observed Diversion Discharge",
+      "storedUnitCode": "cfs",
+      "englishUnitCode": "cfs",
+      "metricUnitCode": "m3/s"
+    },
+    {
+      "code": "DIV",
+      "name": "DIVERSION FLOW VOLUME OBSERVED",
+      "physicalElementName": "runoff volume ",
+      "functionCode": "S",
+      "dataPrecision": 0,
+      "description": "Observed Diversion Volume",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "HFTV",
+      "name": "ENERGY GAIN OR LOSS FROM GROUND",
+      "physicalElementName": "energy gain or loss from ground",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "EVAP",
+      "name": "EVAPORATION",
+      "physicalElementName": "evaporation",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "FUEL",
+      "name": "FUEL MOISTURE",
+      "physicalElementName": "fuel moisture",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "FMTMP",
+      "name": "FUEL TEMPERATURE INTERNAL",
+      "physicalElementName": "fuel temperature internal",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "VOLT",
+      "name": "GENERIC VOLTAGE",
+      "physicalElementName": "generic voltage",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "TGSV",
+      "name": "GROUND SURFACE INTERFACE TEMPERATURE AVERAGE",
+      "physicalElementName": "ground surf inter temp",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TGSX",
+      "name": "GROUND SURFACE INTERFACE TEMPERATURE MAXIMUM",
+      "physicalElementName": "ground surf inter temp",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TGSN",
+      "name": "GROUND SURFACE INTERFACE TEMPERATURE MINIMUM",
+      "physicalElementName": "ground surf inter temp",
+      "functionCode": "N",
+      "dataPrecision": 0,
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "TGSI",
+      "name": "GROUND SURFACE INTERFACE TEMPERATURE OBSERVED",
+      "physicalElementName": "ground surf inter temp",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "AWDC",
+      "name": "leaf wetness duration current",
+      "physicalElementName": "leaf wetness",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "leaf wetness duration current",
+      "storedUnitCode": "min",
+      "englishUnitCode": "min",
+      "metricUnitCode": "min"
+    },
+    {
+      "code": "NTRDV",
+      "name": "NET SOLAR RADIATION AVERAGE",
+      "physicalElementName": "solar radiation - net",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Average Net Solar Radiation",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "NTRDX",
+      "name": "NET SOLAR RADIATION MAXIMUM",
+      "physicalElementName": "solar radiation - net",
+      "functionCode": "X",
+      "dataPrecision": 2,
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "NTRDN",
+      "name": "NET SOLAR RADIATION MINIMUM",
+      "physicalElementName": "solar radiation - net",
+      "functionCode": "N",
+      "dataPrecision": 2,
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "NTRDC",
+      "name": "NET SOLAR RADIATION OBSERVED",
+      "physicalElementName": "solar radiation - net",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "H2OPH",
+      "name": "PH",
+      "physicalElementName": "ph",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "unitless",
+      "englishUnitCode": "unitless",
+      "metricUnitCode": "unitless"
+    },
+    {
+      "code": "PARV",
+      "name": "PHOTOSYNTHETICALLY ACTIVE RADIATION (PAR) AVERAGE",
+      "physicalElementName": "photosynthetically active radiation (par)",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Photosynthetically Active Radiation",
+      "storedUnitCode": "micromole/m2/s",
+      "englishUnitCode": "micromole/m2/s",
+      "metricUnitCode": "micromole/m2/s"
+    },
+    {
+      "code": "PREC",
+      "name": "PRECIPITATION ACCUMULATION",
+      "physicalElementName": "precipitation accumulation",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Water Year Accumulated Precipitation",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "PRCP",
+      "name": "PRECIPITATION INCREMENT",
+      "physicalElementName": "precipitation increment",
+      "functionCode": "D",
+      "dataPrecision": 2,
+      "description": "Total Precipitation",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "PRCPSA",
+      "name": "PRECIPITATION INCREMENT - SNOW-ADJ",
+      "physicalElementName": "z precipitation increment - snow-adjusted",
+      "functionCode": "D",
+      "dataPrecision": 2,
+      "description": "Snow Adjusted Total Preciptation",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "PRCPMTD",
+      "name": "PRECIPITATION MONTH-TO-DATE",
+      "physicalElementName": "precipitation increment",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Month-to-date Precipitation",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "PTEMP",
+      "name": "PROFILE TEMPERATURE",
+      "physicalElementName": "profile temperature",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Temperature Profile",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "ETIL",
+      "name": "PULSE LINE MONITOR-ETI GUAGE",
+      "physicalElementName": "pulse line monitor-eti guage",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "volt",
+      "englishUnitCode": "volt",
+      "metricUnitCode": "volt"
+    },
+    {
+      "code": "LWINV",
+      "name": "RADIATION INCOMING LONGWAVE AVERAGE",
+      "physicalElementName": "radiation incoming longwave",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Incoming Longwave Radiation Average",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SWINV",
+      "name": "RADIATION INCOMING SHORTWAVE AVERAGE",
+      "physicalElementName": "radiation incoming shortwave",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Incoming Shortwave Radiation Average",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "LWOTV",
+      "name": "RADIATION OUTGOING LONGWAVE AVERAGE",
+      "physicalElementName": "radiation outgoing longwave",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Outgoing Longwave Radiation Average",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SWOTV",
+      "name": "RADIATION OUTGOING SHORTWAVE AVERAGE",
+      "physicalElementName": "radiation outgoing shortwave",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Outgoing Shortwave Radiation Average",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "RDC",
+      "name": "REAL DIELECTRIC CONSTANT",
+      "physicalElementName": "real dielectric constant",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Real Dielectric Constant of Soil",
+      "storedUnitCode": "unitless",
+      "englishUnitCode": "unitless",
+      "metricUnitCode": "unitless"
+    },
+    {
+      "code": "RHUM",
+      "name": "RELATIVE HUMIDITY",
+      "physicalElementName": "relative humidity",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Relative Humidity",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "RHUMV",
+      "name": "RELATIVE HUMIDITY AVERAGE",
+      "physicalElementName": "relative humidity",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Average Relative Humidity",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "RHENC",
+      "name": "RELATIVE HUMIDITY ENCLOSURE",
+      "physicalElementName": "relative humidity enclosure",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Relative Humidity of Datalogger Enclosure",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "RHUMX",
+      "name": "RELATIVE HUMIDITY MAXIMUM",
+      "physicalElementName": "relative humidity",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "description": "Maximum Relative Humidity",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "RHUMN",
+      "name": "RELATIVE HUMIDITY MINIMUM",
+      "physicalElementName": "relative humidity",
+      "functionCode": "N",
+      "dataPrecision": 0,
+      "description": "Minimum Relative Humidity",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "REST",
+      "name": "RESERVOIR STAGE",
+      "physicalElementName": "gage height",
+      "functionCode": "C",
+      "dataPrecision": 3,
+      "description": "Reservoir Stage",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "RESTD",
+      "name": "RESERVOIR STAGE DELTA",
+      "physicalElementName": "gage height",
+      "functionCode": "D",
+      "dataPrecision": 3,
+      "description": "Change in reservoir stage over duration",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "RESC",
+      "name": "RESERVOIR STORAGE VOLUME",
+      "physicalElementName": "lake storage volume",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Reservoir Storage Volume",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "SRDOO",
+      "name": "RIVER DISCHARGE OBSERVED MEAN",
+      "physicalElementName": "discharge - river",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Average Observed Streamflow Discharge",
+      "storedUnitCode": "cfs",
+      "englishUnitCode": "cfs",
+      "metricUnitCode": "m3/s"
+    },
+    {
+      "code": "SAL",
+      "name": "SALINITY",
+      "physicalElementName": "salinity",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Soil Salinity",
+      "storedUnitCode": "gram/l",
+      "englishUnitCode": "gram/l",
+      "metricUnitCode": "gram/l"
+    },
+    {
+      "code": "SNDN",
+      "name": "Snow Density",
+      "physicalElementName": "snow density",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "The mass of snow per unit volume, expressed as a percent of water content",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "SNWD",
+      "name": "SNOW DEPTH",
+      "physicalElementName": "snow depth",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Total Snow Depth",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "SNWDV",
+      "name": "SNOW DEPTH AVERAGE",
+      "physicalElementName": "snow depth",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Average Snow Depth -daily (start of day) sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "SNWDX",
+      "name": "SNOW DEPTH MAXIMUM",
+      "physicalElementName": "snow depth",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "description": "Maximum Snow Depth -daily (start of day) sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "SNWDN",
+      "name": "SNOW DEPTH MINIMUM",
+      "physicalElementName": "snow depth",
+      "functionCode": "N",
+      "dataPrecision": 0,
+      "description": "Minimum Snow Depth -daily (start of day) sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "SNRR",
+      "name": "Snow Rain Ratio",
+      "physicalElementName": "snow rain ratio",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Daily or sum of daily snow water equivalent increases as pct of total precip for the same period",
+      "storedUnitCode": "unitless",
+      "englishUnitCode": "unitless",
+      "metricUnitCode": "unitless"
+    },
+    {
+      "code": "STEMP",
+      "name": "SNOW TEMPERATURE",
+      "physicalElementName": "snow temperature",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Observed Snow Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STAVG",
+      "name": "SNOW TEMPERATURE AVERAGE",
+      "physicalElementName": "profile temperature",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Snow Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STMAX",
+      "name": "SNOW TEMPERATURE MAXIMUM",
+      "physicalElementName": "profile temperature",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Snow Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STMIN",
+      "name": "SNOW TEMPERATURE MINIMUM",
+      "physicalElementName": "profile temperature",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "description": "Minimum Snow Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "WTEQ",
+      "name": "SNOW WATER EQUIVALENT",
+      "physicalElementName": "snow water equivalent",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Depth of water that would theoretically result if the entire snowpack were melted instantaneously",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "WTEQV",
+      "name": "SNOW WATER EQUIVALENT AVERAGE",
+      "physicalElementName": "snow water equivalent",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Snow Water Equivalent - daily sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "WTEQX",
+      "name": "SNOW WATER EQUIVALENT MAXIMUM",
+      "physicalElementName": "snow water equivalent",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Snow Water Equivalent - daily sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "WTEQN",
+      "name": "SNOW WATER EQUIVALENT MINIMUM",
+      "physicalElementName": "snow water equivalent",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "description": "Minimum Snow Water Equivalent - daily sampling frequency, serially complete data required",
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "mm"
+    },
+    {
+      "code": "SMS",
+      "name": "SOIL MOISTURE PERCENT",
+      "physicalElementName": "soil moisture percent",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Percent Volumetric Soil Moisture",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "SMV",
+      "name": "SOIL MOISTURE PERCENT AVERAGE",
+      "physicalElementName": "soil moisture percent",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Percent Soil Moisture by Volume - hourly sampling frequency, serially complete data required",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "SMX",
+      "name": "SOIL MOISTURE PERCENT MAXIMUM",
+      "physicalElementName": "soil moisture percent",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Percent Soil Moisture by Volume - hourly sampling frequency, serially complete data required",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "SMN",
+      "name": "SOIL MOISTURE PERCENT MINIMUM",
+      "physicalElementName": "soil moisture percent",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "description": "Minimum Percent Soil Moisture by Volume - hourly sampling frequency, serially complete data required",
+      "storedUnitCode": "pct",
+      "englishUnitCode": "pct",
+      "metricUnitCode": "pct"
+    },
+    {
+      "code": "STV",
+      "name": "SOIL TEMPERATURE AVERAGE",
+      "physicalElementName": "soil temperature",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Average Soil Temperature based on hourly sampling frequency; serially complete data required",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STX",
+      "name": "SOIL TEMPERATURE MAXIMUM",
+      "physicalElementName": "soil temperature",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "description": "Maximum Soil Temperature based on hourly sampling frequency; serially complete data required",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STN",
+      "name": "SOIL TEMPERATURE MINIMUM",
+      "physicalElementName": "soil temperature",
+      "functionCode": "N",
+      "dataPrecision": 0,
+      "description": "Maximum Soil Temperature based on hourly sampling frequency; serially complete data required",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "STO",
+      "name": "SOIL TEMPERATURE OBSERVED",
+      "physicalElementName": "soil temperature",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Observed Soil Temperature ",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "SRAD",
+      "name": "SOLAR RADIATION",
+      "physicalElementName": "solar radiation - total",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "description": "Solar Radiation",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SRADV",
+      "name": "SOLAR RADIATION AVERAGE",
+      "physicalElementName": "solar radiation - total",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Average Solar Radiation",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SRADX",
+      "name": "SOLAR RADIATION MAXIMUM",
+      "physicalElementName": "solar radiation - total",
+      "functionCode": "X",
+      "dataPrecision": 2,
+      "description": "Maximum Solar Radiation",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SRADN",
+      "name": "SOLAR RADIATION MINIMUM",
+      "physicalElementName": "solar radiation - total",
+      "functionCode": "N",
+      "dataPrecision": 2,
+      "description": "Minimum Solar Radiation",
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "SRADT",
+      "name": "SOLAR RADIATION TOTAL",
+      "physicalElementName": "solar radiation - total",
+      "functionCode": "S",
+      "dataPrecision": 2,
+      "storedUnitCode": "watt/m2",
+      "englishUnitCode": "watt/m2",
+      "metricUnitCode": "watt/m2"
+    },
+    {
+      "code": "LRAD",
+      "name": "SOLAR RADIATION/LANGLEY",
+      "physicalElementName": "solar radiation - accumulated",
+      "functionCode": "C",
+      "dataPrecision": 2,
+      "storedUnitCode": "langley",
+      "englishUnitCode": "langley",
+      "metricUnitCode": "langley"
+    },
+    {
+      "code": "LRADX",
+      "name": "SOLAR RADIATION/LANGLEY MAXIMUM",
+      "physicalElementName": "solar radiation - accumulated",
+      "functionCode": "X",
+      "dataPrecision": 2,
+      "storedUnitCode": "langley",
+      "englishUnitCode": "langley",
+      "metricUnitCode": "langley"
+    },
+    {
+      "code": "LRADT",
+      "name": "SOLAR RADIATION/LANGLEY TOTAL",
+      "physicalElementName": "solar radiation - accumulated",
+      "functionCode": "S",
+      "dataPrecision": 2,
+      "description": "Total Solar Radiation",
+      "storedUnitCode": "langley",
+      "englishUnitCode": "langley",
+      "metricUnitCode": "langley"
+    },
+    {
+      "code": "SRMV",
+      "name": "STREAM STAGE (GAUGE HEIGHT) AVERAGE",
+      "physicalElementName": "stream stage (gauge height)",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Stream Stage",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "SRMX",
+      "name": "STREAM STAGE (GAUGE HEIGHT) MAXIMUM",
+      "physicalElementName": "stream stage (gauge height)",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Stream Stage",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "SRMN",
+      "name": "STREAM STAGE (GAUGE HEIGHT) MINIMUM",
+      "physicalElementName": "stream stage (gauge height)",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "description": "Minimum Stream Stage",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "SRMO",
+      "name": "STREAM STAGE (GAUGE HEIGHT) OBSERVED",
+      "physicalElementName": "stream stage (gauge height)",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "description": "Observed Stream Stage",
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "SRVO",
+      "name": "STREAM VOLUME, ADJUSTED",
+      "physicalElementName": "stream flow volume adjusted for upstream projects",
+      "functionCode": "S",
+      "dataPrecision": 0,
+      "description": "Streamflow Volume adjusted for significant human regulation where data are available",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "SRVOX",
+      "name": "STREAM VOLUME, ADJUSTED EXTERNAL",
+      "physicalElementName": "stream flow volume adjusted manual/external",
+      "functionCode": "S",
+      "dataPrecision": 0,
+      "description": "Streamflow Volume adjusted for significant human regulation.  Non-NRCS adjustment calculations",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "SRVOO",
+      "name": "STREAM VOLUME, OBSERVED",
+      "physicalElementName": "stream flow volume unadjusted",
+      "functionCode": "S",
+      "dataPrecision": 0,
+      "description": "Observed Streamflow Volume",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "OI",
+      "name": "TELECONNECTION INDEX",
+      "physicalElementName": "oscillation index",
+      "functionCode": "C",
+      "dataPrecision": 3,
+      "description": "Teleconnection Index",
+      "storedUnitCode": "unitless",
+      "englishUnitCode": "unitless",
+      "metricUnitCode": "unitless"
+    },
+    {
+      "code": "TURB",
+      "name": "TURBIDITY",
+      "physicalElementName": "turbidity",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "ntu",
+      "englishUnitCode": "ntu",
+      "metricUnitCode": "ntu"
+    },
+    {
+      "code": "RESA",
+      "name": "USABLE LAKE STORAGE VOLUME",
+      "physicalElementName": "reservoir volume adjusted",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Usable or active space occupied, as measured by cubic units, by water in a lake.",
+      "storedUnitCode": "ac_ft",
+      "englishUnitCode": "ac_ft",
+      "metricUnitCode": "dam^3"
+    },
+    {
+      "code": "PVPV",
+      "name": "VAPOR PRESSURE - PARTIAL",
+      "physicalElementName": "vapor pressure - partial",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Partial Vapor Pressure",
+      "storedUnitCode": "kPa",
+      "englishUnitCode": "inch_Hg",
+      "metricUnitCode": "kPa"
+    },
+    {
+      "code": "SVPV",
+      "name": "VAPOR PRESSURE - SATURATED",
+      "physicalElementName": "vapor pressure - saturated",
+      "functionCode": "V",
+      "dataPrecision": 2,
+      "description": "Saturated Vapor Pressure",
+      "storedUnitCode": "kPa",
+      "englishUnitCode": "inch_Hg",
+      "metricUnitCode": "kPa"
+    },
+    {
+      "code": "WLEVV",
+      "name": "WATER LEVEL AVERAGE",
+      "physicalElementName": "water level",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "WLEVX",
+      "name": "WATER LEVEL MAXIMUM",
+      "physicalElementName": "water level",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "WLEVN",
+      "name": "WATER LEVEL MINIMUM",
+      "physicalElementName": "water level",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "WLEV",
+      "name": "WATER LEVEL OBSERVED",
+      "physicalElementName": "water level",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "storedUnitCode": "in",
+      "englishUnitCode": "in",
+      "metricUnitCode": "cm"
+    },
+    {
+      "code": "WTEMP",
+      "name": "WATER TEMPERATURE",
+      "physicalElementName": "water temperature",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "description": "Observed Water Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "WTAVG",
+      "name": "WATER TEMPERATURE AVERAGE",
+      "physicalElementName": "water temperature",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Average Water Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "WTMAX",
+      "name": "WATER TEMPERATURE MAXIMUM",
+      "physicalElementName": "water temperature",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "description": "Maximum Water Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "WTMIN",
+      "name": "WATER TEMPERATURE MINIMUM",
+      "physicalElementName": "water temperature",
+      "functionCode": "N",
+      "dataPrecision": 0,
+      "description": "Minimum Water Temperature",
+      "storedUnitCode": "degF",
+      "englishUnitCode": "degF",
+      "metricUnitCode": "degC"
+    },
+    {
+      "code": "WELL",
+      "name": "WELL DEPTH",
+      "physicalElementName": "well depth",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "storedUnitCode": "ft",
+      "englishUnitCode": "ft",
+      "metricUnitCode": "m"
+    },
+    {
+      "code": "WDIRV",
+      "name": "WIND DIRECTION AVERAGE",
+      "physicalElementName": "wind direction",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "description": "Average Wind Direction",
+      "storedUnitCode": "degree",
+      "englishUnitCode": "degree",
+      "metricUnitCode": "degree"
+    },
+    {
+      "code": "WDIR",
+      "name": "WIND DIRECTION OBSERVED",
+      "physicalElementName": "wind direction",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "degree",
+      "englishUnitCode": "degree",
+      "metricUnitCode": "degree"
+    },
+    {
+      "code": "WDIRZ",
+      "name": "WIND DIRECTION STANDARD DEVIATION",
+      "physicalElementName": "wind direction",
+      "functionCode": "Z",
+      "dataPrecision": 0,
+      "description": "Standard Deviation of Wind Direction",
+      "storedUnitCode": "degree",
+      "englishUnitCode": "degree",
+      "metricUnitCode": "degree"
+    },
+    {
+      "code": "WDMVV",
+      "name": "WIND MOVEMENT AVERAGE",
+      "physicalElementName": "wind movement",
+      "functionCode": "V",
+      "dataPrecision": 0,
+      "storedUnitCode": "mile",
+      "englishUnitCode": "mile",
+      "metricUnitCode": "km"
+    },
+    {
+      "code": "WDMVX",
+      "name": "WIND MOVEMENT MAXIMUM",
+      "physicalElementName": "wind movement",
+      "functionCode": "X",
+      "dataPrecision": 0,
+      "storedUnitCode": "mile",
+      "englishUnitCode": "mile",
+      "metricUnitCode": "km"
+    },
+    {
+      "code": "WDMV",
+      "name": "WIND MOVEMENT OBSERVED",
+      "physicalElementName": "wind movement",
+      "functionCode": "C",
+      "dataPrecision": 0,
+      "storedUnitCode": "mile",
+      "englishUnitCode": "mile",
+      "metricUnitCode": "km"
+    },
+    {
+      "code": "WDMVT",
+      "name": "WIND MOVEMENT TOTAL",
+      "physicalElementName": "wind movement",
+      "functionCode": "S",
+      "dataPrecision": 0,
+      "description": "Total Wind Movement",
+      "storedUnitCode": "mile",
+      "englishUnitCode": "mile",
+      "metricUnitCode": "km"
+    },
+    {
+      "code": "WSPDV",
+      "name": "WIND SPEED AVERAGE",
+      "physicalElementName": "wind speed",
+      "functionCode": "V",
+      "dataPrecision": 1,
+      "description": "Average Wind Speed",
+      "storedUnitCode": "mph",
+      "englishUnitCode": "mph",
+      "metricUnitCode": "km/hr"
+    },
+    {
+      "code": "WSPDX",
+      "name": "WIND SPEED MAXIMUM",
+      "physicalElementName": "wind speed",
+      "functionCode": "X",
+      "dataPrecision": 1,
+      "description": "Maximum Wind Speed",
+      "storedUnitCode": "mph",
+      "englishUnitCode": "mph",
+      "metricUnitCode": "km/hr"
+    },
+    {
+      "code": "WSPDN",
+      "name": "WIND SPEED MINIMUM",
+      "physicalElementName": "wind speed",
+      "functionCode": "N",
+      "dataPrecision": 1,
+      "storedUnitCode": "mph",
+      "englishUnitCode": "mph",
+      "metricUnitCode": "km/hr"
+    },
+    {
+      "code": "WSPD",
+      "name": "WIND SPEED OBSERVED",
+      "physicalElementName": "wind speed",
+      "functionCode": "C",
+      "dataPrecision": 1,
+      "storedUnitCode": "mph",
+      "englishUnitCode": "mph",
+      "metricUnitCode": "km/hr"
+    }
+  ],
+  "forecastPeriods": [
+    {
+      "code": "09",
+      "name": "OCT-SEP",
+      "beginMonthDay": "10-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "0H",
+      "name": "OCT-HIGH",
+      "description": "October 1 to high stage",
+      "beginMonthDay": "10-01"
+    },
+    {
+      "code": "10",
+      "name": "Tahoe rise",
+      "description": "Tahoe rise compared"
+    },
+    {
+      "code": "11",
+      "name": "JAN",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "01-31"
+    },
+    {
+      "code": "12",
+      "name": "JAN-FEB",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "02-29"
+    },
+    {
+      "code": "13",
+      "name": "JAN-MAR",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "03-31"
+    },
+    {
+      "code": "14",
+      "name": "JAN-APR",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "15",
+      "name": "JAN-MAY",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "16",
+      "name": "JAN-JUN",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "17",
+      "name": "JAN-JUL",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "18",
+      "name": "JAN-AUG",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "19",
+      "name": "JAN-SEP",
+      "beginMonthDay": "01-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "1H",
+      "name": "JAN-HIGH",
+      "description": "Jan 1 to high flow",
+      "beginMonthDay": "01-01"
+    },
+    {
+      "code": "22",
+      "name": "FEB",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "02-29"
+    },
+    {
+      "code": "23",
+      "name": "FEB-MAR",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "03-31"
+    },
+    {
+      "code": "24",
+      "name": "FEB-APR",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "25",
+      "name": "FEB-MAY",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "26",
+      "name": "FEB-JUN",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "27",
+      "name": "FEB-JUL",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "28",
+      "name": "FEB-AUG",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "29",
+      "name": "FEB-SEP",
+      "beginMonthDay": "02-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "2H",
+      "name": "FEB-HIGH",
+      "description": "FEB 1 to high flow",
+      "beginMonthDay": "02-01"
+    },
+    {
+      "code": "30",
+      "name": "MAR-OCT",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "10-31"
+    },
+    {
+      "code": "33",
+      "name": "MAR",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "03-31"
+    },
+    {
+      "code": "34",
+      "name": "MAR-APR",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "35",
+      "name": "MAR-MAY",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "36",
+      "name": "MAR-JUN",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "37",
+      "name": "MAR-JUL",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "38",
+      "name": "MAR-AUG",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "39",
+      "name": "MAR-SEP",
+      "beginMonthDay": "03-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "3H",
+      "name": "MAR-HIGH",
+      "description": "March 1 to high flow",
+      "beginMonthDay": "03-01"
+    },
+    {
+      "code": "40",
+      "name": "APR-OCT",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "10-31"
+    },
+    {
+      "code": "44",
+      "name": "APR",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "45",
+      "name": "APR-MAY",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "46",
+      "name": "APR-JUN",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "47",
+      "name": "APR-JUL",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "48",
+      "name": "APR-AUG",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "49",
+      "name": "APR-SEP",
+      "beginMonthDay": "04-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "4H",
+      "name": "APR-HIGH",
+      "description": "April 1 to high flow",
+      "beginMonthDay": "04-01"
+    },
+    {
+      "code": "50",
+      "name": "MAY-OCT",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "10-31"
+    },
+    {
+      "code": "55",
+      "name": "MAY",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "56",
+      "name": "MAY-JUN",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "57",
+      "name": "MAY-JUL",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "58",
+      "name": "MAY-AUG",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "59",
+      "name": "MAY-SEP",
+      "beginMonthDay": "05-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "5H",
+      "name": "MAY-HIGH",
+      "description": "May 1 to high flow",
+      "beginMonthDay": "05-01"
+    },
+    {
+      "code": "60",
+      "name": "JUN-OCT",
+      "beginMonthDay": "06-01",
+      "endMonthDay": "10-31"
+    },
+    {
+      "code": "66",
+      "name": "JUN",
+      "beginMonthDay": "06-01",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "67",
+      "name": "JUN-JUL",
+      "beginMonthDay": "06-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "68",
+      "name": "JUN-AUG",
+      "beginMonthDay": "06-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "69",
+      "name": "JUN-SEP",
+      "beginMonthDay": "06-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "6H",
+      "name": "JUN-HIGH",
+      "description": "Jun 1 to high flow",
+      "beginMonthDay": "06-01"
+    },
+    {
+      "code": "77",
+      "name": "JUL",
+      "beginMonthDay": "07-01",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "78",
+      "name": "JUL-AUG",
+      "beginMonthDay": "07-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "79",
+      "name": "JUL-SEP",
+      "beginMonthDay": "07-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "88",
+      "name": "AUG",
+      "beginMonthDay": "08-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "89",
+      "name": "SEP-AUG",
+      "beginMonthDay": "09-01",
+      "endMonthDay": "08-31"
+    },
+    {
+      "code": "99",
+      "name": "SEP",
+      "beginMonthDay": "09-01",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "D1",
+      "name": "J16-JAN",
+      "description": "Jan 16 through Jan",
+      "beginMonthDay": "01-16",
+      "endMonthDay": "01-31"
+    },
+    {
+      "code": "D5",
+      "name": "J16-MAY",
+      "description": "Jan 16 through May",
+      "beginMonthDay": "01-16",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "D6",
+      "name": "J16-JUN",
+      "description": "Jan 16 through Jun",
+      "beginMonthDay": "01-16",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "D9",
+      "name": "J16-SEP",
+      "description": "Jan 16 through Sep",
+      "beginMonthDay": "01-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "DA",
+      "name": "10 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DB",
+      "name": "20 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DC",
+      "name": "60 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DD",
+      "name": "90 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DE",
+      "name": "140 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DF",
+      "name": "160 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DG",
+      "name": "200 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DH",
+      "name": "225 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DI",
+      "name": "500 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DJ",
+      "name": "1000 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DK",
+      "name": "2000 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DL",
+      "name": "50 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DM",
+      "name": "75 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DN",
+      "name": "100 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DO",
+      "name": "113 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DP",
+      "name": "400 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "DQ",
+      "name": "1 Oct flow",
+      "description": "Mean daily flow on date"
+    },
+    {
+      "code": "DR",
+      "name": "1 Aug flow",
+      "description": "Mean daily flow on date"
+    },
+    {
+      "code": "E2",
+      "name": "F16-FEB",
+      "description": "Feb 16 through Feb",
+      "beginMonthDay": "02-16",
+      "endMonthDay": "02-29"
+    },
+    {
+      "code": "E5",
+      "name": "F16-MAY",
+      "description": "Feb 16 through May",
+      "beginMonthDay": "02-16",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "E6",
+      "name": "F16-JUN",
+      "description": "Feb 16 through Jun",
+      "beginMonthDay": "02-16",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "E9",
+      "name": "F16-SEP",
+      "description": "Feb 16 through Sep",
+      "beginMonthDay": "02-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "F3",
+      "name": "M16-MAR",
+      "description": "Mar 16 through Mar",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "03-31"
+    },
+    {
+      "code": "F4",
+      "name": "M16-APR",
+      "description": "Mar 16 through Apr",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "F5",
+      "name": "M16-MAY",
+      "description": "Mar 16 through May",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "F6",
+      "name": "M16-JUN",
+      "description": "Mar 16 through Jun",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "F7",
+      "name": "M16-JUL",
+      "description": "Mar 16 through Jul",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "F9",
+      "name": "M16-SEP",
+      "description": "Mar 16 through Sep",
+      "beginMonthDay": "03-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "G4",
+      "name": "A16-APR",
+      "description": "Apr 16 through Apr",
+      "beginMonthDay": "04-16",
+      "endMonthDay": "04-30"
+    },
+    {
+      "code": "G5",
+      "name": "A16-MAY",
+      "description": "Apr 16 through May",
+      "beginMonthDay": "04-16",
+      "endMonthDay": "05-31"
+    },
+    {
+      "code": "G6",
+      "name": "A16-JUN",
+      "description": "Apr 16 through Jun",
+      "beginMonthDay": "04-16",
+      "endMonthDay": "06-30"
+    },
+    {
+      "code": "G7",
+      "name": "A16-JUL",
+      "description": "Apr 16 through Jul",
+      "beginMonthDay": "04-16",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "G9",
+      "name": "A16-SEP",
+      "description": "Apr 16 through Sep",
+      "beginMonthDay": "04-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "H",
+      "name": "Lake elev change",
+      "description": "Lake elevation chang"
+    },
+    {
+      "code": "H7",
+      "name": "MAY16-JUL",
+      "description": "May 16 through Jul",
+      "beginMonthDay": "05-16",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "H9",
+      "name": "MAY16-SEP",
+      "description": "May 16 through Sep",
+      "beginMonthDay": "05-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "I7",
+      "name": "JUN16-JUL",
+      "description": "Jun 16 through Jul",
+      "beginMonthDay": "06-16",
+      "endMonthDay": "07-31"
+    },
+    {
+      "code": "I9",
+      "name": "JUN16-SEP",
+      "description": "Jun 16 through Sep",
+      "beginMonthDay": "06-16",
+      "endMonthDay": "09-30"
+    },
+    {
+      "code": "L2",
+      "name": "200 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "L5",
+      "name": "500 cfs",
+      "description": "Date to recede below"
+    },
+    {
+      "code": "LH",
+      "name": "LOW-HIGH",
+      "description": "Low to high flow"
+    },
+    {
+      "code": "P",
+      "name": "Peak flow"
+    },
+    {
+      "code": "PD",
+      "name": "Peak date",
+      "description": "Date of peak daily flow"
+    }
+  ],
+  "functions": [
+    {
+      "code": "V",
+      "abbreviation": "AVG",
+      "name": "average for interval"
+    },
+    {
+      "code": "C",
+      "abbreviation": "OBS",
+      "name": "current observation"
+    },
+    {
+      "code": "D",
+      "abbreviation": "DLT",
+      "name": "delta  for interval"
+    },
+    {
+      "code": "X",
+      "abbreviation": "MAX",
+      "name": "maximum for interval"
+    },
+    {
+      "code": "N",
+      "abbreviation": "MIN",
+      "name": "minimum for interval"
+    },
+    {
+      "code": "Z",
+      "abbreviation": "STD",
+      "name": "standard deviation"
+    },
+    {
+      "code": "S",
+      "abbreviation": "SUM",
+      "name": "total  for interval"
+    },
+    {
+      "code": "U",
+      "abbreviation": "UNK",
+      "name": "unknown"
+    }
+  ],
+  "instruments": [
+    {
+      "name": "0 1.5 PSI USBR",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "0\" gauge - Belfort",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "1.5 PSI USBR",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "100\" CIC - unknown",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "100\" CIC transducer",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "100\" MicroMet",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "100\" txdcr - 8\" orifice - 14\" base",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "12\" gauge - Belfort",
+      "transducerLength": 12,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "150\" CIC",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "150\" transducer - Edcliff",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Edcliff",
+      "active": false
+    },
+    {
+      "name": "150\" transducer - unknown",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "150\"txdcr midnight",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "20\" gauge - Belfort",
+      "transducerLength": 20,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "200\" transducer - Edcliff",
+      "transducerLength": 200,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Edcliff",
+      "active": false
+    },
+    {
+      "name": "200\" transducer - unknown",
+      "transducerLength": 200,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "30\" gauge - Belfort",
+      "transducerLength": 30,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "30\" gauge USBR - Belfort",
+      "transducerLength": 30,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "40\" gauge - Belfort",
+      "transducerLength": 40,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "50\" transducer - unknown",
+      "transducerLength": 50,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "545",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "545 battery",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "6\" gauge - Belfort",
+      "transducerLength": 6,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Belfort",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "60\" pillow USBR - Validyne",
+      "transducerLength": 60,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Validyne",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Air Temp - Apogee ST300",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "ST-300",
+      "active": true
+    },
+    {
+      "name": "Air Temp - Campbell CS109",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "CSI 109",
+      "active": true
+    },
+    {
+      "name": "Air Temp - Unknown Sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Air Temp - YSI 44211A",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "YSI",
+      "model": "44211A",
+      "active": true
+    },
+    {
+      "name": "Air Temp - YSI 44211A Corrected",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "YSI",
+      "model": "44211A",
+      "active": true
+    },
+    {
+      "name": "Air Temp/RH - Campbell CS215",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "CS-215",
+      "active": true
+    },
+    {
+      "name": "Air Temp/RH - HygroClip HC2S3(A)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Rotronic",
+      "model": "HC2-S3",
+      "active": true
+    },
+    {
+      "name": "Air Temp/RH - Unknown Sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Air Temp/RH - Vaisala HMP155",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Vaisala",
+      "model": "HMP155",
+      "active": true
+    },
+    {
+      "name": "AirTemp/RH - Vaisala HMP45C",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Badger Pass Metal/Butyl",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Barometric Pressure - Campbell BaroVue",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "BaroVue",
+      "active": true
+    },
+    {
+      "name": "Battery for obstruction light",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Battery Voltage - Datalogger Power System",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Battery Voltage - Telemetry Power System",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Battery Voltage - Undefined",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Colman",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Colman USVI",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "CR10X",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "CSI 107",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Datalogger - Diagnostic",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "CR1000X",
+      "active": true
+    },
+    {
+      "name": "Druck 0-69.4\"",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Epley Clear",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Epley IR",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Epley Smoke",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "ETI",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "ETI gage",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "extended range",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "therm-x",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "for Idaho",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Gamma SWE",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "GCCP",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "handr ultra sonic",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "HFT",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Hydraprobe analog (5.0 volt)  - 1 of 4",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Vitel",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "hypalon",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Ice Detector/Freezing Rain",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Rosemount Aerospace",
+      "model": "0871LH1",
+      "active": false
+    },
+    {
+      "name": "Judd MicroMet",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Judd",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Leaf Wetness - LWS Decagon",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Decagon Devices",
+      "model": "LWS",
+      "active": true
+    },
+    {
+      "name": "Licor / 2.00",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Lundahl",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Lycor sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MCC",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MCC550B use at 2.5vdc",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "mercury",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MicroMet",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "MicroMet",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MicroMet Battery",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MicroMet YSI44211",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "MicroMet",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "ML2",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MRC",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MT sensor Lick Creek",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MT(NV)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "MX10",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Nova Lynx",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "NV",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "obstruction light",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "old YSI 4 wire",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "old YSI 4 wire composite",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "optical",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "optical diag",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "pan",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Parshall flume",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Parshall",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Patterson Hollow",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "pH GCCP",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Piezometer",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Pre-SNOTEL non-telemetered precipitation can with logger",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Pre-SNOTEL non-telemetered snow pillow with logger",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Precipitation - Belfort TB",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "Belfort",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Precipitation - HyQuest Solutions TB4",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "HyQuest Solutions",
+      "model": "TB4",
+      "active": true
+    },
+    {
+      "name": "Precipitation - Unknown Sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Precipitation - Unknown Sensor To Hundredths",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Precipitation Rate",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Thies",
+      "model": "TC041-L",
+      "active": false
+    },
+    {
+      "name": "Pressure Transducer - 100\" Druck",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "PMP317",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 100\" Edcliff",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Edcliff",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 100\" Sensotec",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 100\" Unknown",
+      "transducerLength": 100,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 150\" Druck",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "PMP317",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 150\" Sensotec",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 150\" Unknown",
+      "transducerLength": 150,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec/Druck/Edcliff",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 200\" Druck",
+      "transducerLength": 200,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "PMP317",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 200\" Sensotec",
+      "transducerLength": 200,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 250\" Sensotec",
+      "transducerLength": 250,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer - 50\" Sensotec",
+      "transducerLength": 50,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sensotec",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer – Terps 8000 – 0 to 2Bar",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "Terps 8000",
+      "active": true
+    },
+    {
+      "name": "Pressure Transducer – Terps 8100 – 0.5 to 1.1Bar",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Druck",
+      "model": "Terps 8100",
+      "active": true
+    },
+    {
+      "name": "Profile Temperature - Beaded Stream DTC",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "BeadedStream",
+      "model": "DTC",
+      "active": true
+    },
+    {
+      "name": "pulse counter",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "pulse line ETI",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Pulse scale",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Quantum",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "quantum solar sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Radiation - Apogee SN500 Net Rad",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "SN500",
+      "active": true
+    },
+    {
+      "name": "Radiation - Apogee SP110SS - SW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "SP-110-SS",
+      "active": true
+    },
+    {
+      "name": "Radiation - Apogee SP510 - SW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "SP510",
+      "active": true
+    },
+    {
+      "name": "Radiation - Apogee SP610 - SW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "SP610",
+      "active": true
+    },
+    {
+      "name": "Radiation - Campbell CS300 - SW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "CS300",
+      "active": true
+    },
+    {
+      "name": "Radiation - Licor 200(x) - SW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Licor",
+      "model": "Li-200(x)",
+      "active": true
+    },
+    {
+      "name": "Radiation - Matrix Radiometer",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "SEI",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "SEI x10",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "shaft encoder - 0-40.95\"",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "snow board",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Snow Depth - Campbell SnowVue",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "SnowVue",
+      "active": true
+    },
+    {
+      "name": "Snow Depth - Campbell SR50A",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "SR50A",
+      "active": false
+    },
+    {
+      "name": "Snow Depth - Judd",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Judd",
+      "model": "SD",
+      "active": true
+    },
+    {
+      "name": "Snow Depth - Sommer USH-9",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sommer",
+      "model": "USH-9",
+      "active": true
+    },
+    {
+      "name": "Snow Depth - Ultrasonic (Unknown)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - Acclima TDR-305N",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Acclima",
+      "model": "305N",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - Acclima TDR-310N",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Acclima",
+      "model": "310N",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - SoilVue 10",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Campbell Scientific",
+      "model": "SoilVue 10",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - Stevens Hydraprobe (value out)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Stevens",
+      "model": "Hydraprobe II",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - Stevens Hydraprobe Analog (volt out)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Stevens",
+      "model": "Hydraprobe II",
+      "active": true
+    },
+    {
+      "name": "Soil Moist/Temp - Stevens Hydraprobe SDI12 (volt out)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Stevens",
+      "model": "Hydraprobe II",
+      "active": true
+    },
+    {
+      "name": "Soil Temp - Stevens Hydraprobe  SDI12 (linear)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Stevens",
+      "model": "Hydraprobe (II)",
+      "active": true
+    },
+    {
+      "name": "Soil Temp - Stevens Hydraprobe SDI12 (complex coding)",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Stevens",
+      "model": "Hydraprobe II",
+      "active": true
+    },
+    {
+      "name": "Storage Gage PCP",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "SWE - Hydroinnova SnowFox",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "HydroInnova",
+      "model": "SnowFox",
+      "active": true
+    },
+    {
+      "name": "SWE - Sommer SSG2000",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sommer",
+      "model": "SSG-2000",
+      "active": true
+    },
+    {
+      "name": "SWE - Sommer SSG3000",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sommer",
+      "model": "SSG-3000",
+      "active": true
+    },
+    {
+      "name": "SWE load cell Sommer SSG-1000",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Mfg:Sommer GmbH & Co KG Austria",
+      "model": "SSG-1000",
+      "active": false
+    },
+    {
+      "name": "SWE sensor ultrasonic",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Telemetry - Sutron SL3-XMTR",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Sutron",
+      "model": "SL3-XMTR",
+      "active": false
+    },
+    {
+      "name": "Temperature - Apogee ST100",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Apogee",
+      "model": "ST-100",
+      "active": false
+    },
+    {
+      "name": "thermistor CSI 107",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Tipping Bucket for Tenderfoot gages",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Tipping Bucket MicroMet",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "TM10",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "TR-525USW",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 1,
+      "manufacturer": "Texas Electronic",
+      "model": "TR-525USW",
+      "active": false
+    },
+    {
+      "name": "Tree Bole",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Turbidity GCCP",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Undefined Sensor - Linear Equation",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "USBR",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "USVI - Bouyoucos",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Bouyoucos",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Validyne",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Validyne transducer",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Validyne",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Watermark",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Watermark USVI",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Wind Speed/Direction - RM Young 5103",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "RM Young",
+      "model": "5103",
+      "active": true
+    },
+    {
+      "name": "Wind Speed/Direction - RM Young 5106",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "RM Young",
+      "model": "5106",
+      "active": true
+    },
+    {
+      "name": "Wind Speed/Direction - RM Young 5108",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "RM Young",
+      "model": "5108",
+      "active": true
+    },
+    {
+      "name": "Wind Speed/Direction – Unknown Sensor",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "Unknown",
+      "model": "Unknown",
+      "active": true
+    },
+    {
+      "name": "Xducer MicroMet",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "Xducer MicroMet Druck",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "YSI extended range - 7.5 volt",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    },
+    {
+      "name": "YSI extended range 7.5 volt",
+      "transducerLength": 0,
+      "dataPrecisionAdjustment": 0,
+      "manufacturer": "unknown",
+      "model": "unknown",
+      "active": false
+    }
+  ],
+  "networks": [
+    {
+      "code": "CLMIND",
+      "name": "CLIMATE INDEX",
+      "description": "CLIMATE INDICES NETWORK"
+    },
+    {
+      "code": "COOP",
+      "name": "COOPERATOR PRECIP GAUGES",
+      "description": "COOPERATOR PRECIPITATION NETWORK STATIONS, PREDOMINANTLY NOAA-NWS COOP STATIONS"
+    },
+    {
+      "code": "MSNT",
+      "name": "COOPERATOR SNOW SENSORS",
+      "description": "NON-NRCS SNOWPACK MONITORING NETWORK STATIONS"
+    },
+    {
+      "code": "MPRC",
+      "name": "MANUAL PRECIPITATION",
+      "description": "MANUAL PRECIPITATION NETWORK STATIONS"
+    },
+    {
+      "code": "OTHER",
+      "name": "Other NRCS Hydromet",
+      "description": "TELEMETERED NRCS STATIONS THAT DO NOT MEET CRITIERIA FOR SNOTEL, SNOLITE, SCAN, or NRCS EXPERIMENTAL"
+    },
+    {
+      "code": "BOR",
+      "name": "RESERVOIR",
+      "description": "RESERVOIR STORAGE NETWORK STATIONS"
+    },
+    {
+      "code": "SCAN",
+      "name": "SCAN",
+      "description": "SOIL CLIMATE ANALYSIS NETWORK STATIONS"
+    },
+    {
+      "code": "SNTLT",
+      "name": "SNOLITE",
+      "description": "SNOW TELEMETRY NETWORK STATIONS, LIMITED SENSORS"
+    },
+    {
+      "code": "SNTL",
+      "name": "SNOTEL",
+      "description": "SNOW TELEMETRY NETWORK STATIONS"
+    },
+    {
+      "code": "SNOW",
+      "name": "SNOW COURSE/AERIAL MARKER",
+      "description": "SNOW COURSE AND AERIAL MARKER NETWORK STATIONS"
+    },
+    {
+      "code": "USGS",
+      "name": "STREAMFLOW",
+      "description": "STREAMFLOW NETWORK STATIONS"
+    },
+    {
+      "code": "CSCAN",
+      "name": "TRIBAL SCAN",
+      "description": "SCAN site maintained by Cooperator"
+    }
+  ],
+  "physicalElements": [
+    {
+      "name": "air temperature",
+      "shefPhysicalElementCode": "TA"
+    },
+    {
+      "name": "barometric pressure",
+      "shefPhysicalElementCode": "PA"
+    },
+    {
+      "name": "battery",
+      "shefPhysicalElementCode": "VB"
+    },
+    {
+      "name": "battery-eti precip guage",
+      "shefPhysicalElementCode": "VB"
+    },
+    {
+      "name": "conductivity",
+      "shefPhysicalElementCode": "WC"
+    },
+    {
+      "name": "dew point temperature",
+      "shefPhysicalElementCode": "TD"
+    },
+    {
+      "name": "diagnostics"
+    },
+    {
+      "name": "discharge - canal diversion",
+      "shefPhysicalElementCode": "QD"
+    },
+    {
+      "name": "discharge - river",
+      "shefPhysicalElementCode": "QR"
+    },
+    {
+      "name": "discharge - river adjusted manual/external"
+    },
+    {
+      "name": "dissolved oxygen",
+      "shefPhysicalElementCode": "WO"
+    },
+    {
+      "name": "dissolved oxygen percent saturation"
+    },
+    {
+      "name": "energy gain or loss from ground"
+    },
+    {
+      "name": "evaporation",
+      "shefPhysicalElementCode": "ED"
+    },
+    {
+      "name": "fuel moisture",
+      "shefPhysicalElementCode": "MM"
+    },
+    {
+      "name": "fuel temperature internal",
+      "shefPhysicalElementCode": "MT"
+    },
+    {
+      "name": "gage height",
+      "shefPhysicalElementCode": "HU"
+    },
+    {
+      "name": "generic voltage",
+      "shefPhysicalElementCode": "VB"
+    },
+    {
+      "name": "ground surf inter temp",
+      "shefPhysicalElementCode": "TS"
+    },
+    {
+      "name": "lake storage volume",
+      "shefPhysicalElementCode": "LS"
+    },
+    {
+      "name": "leaf wetness",
+      "shefPhysicalElementCode": "AW"
+    },
+    {
+      "name": "na"
+    },
+    {
+      "name": "oscillation index"
+    },
+    {
+      "name": "ph",
+      "shefPhysicalElementCode": "WP"
+    },
+    {
+      "name": "photosynthetically active radiation (par)",
+      "shefPhysicalElementCode": "RU"
+    },
+    {
+      "name": "precipitation accumulation",
+      "shefPhysicalElementCode": "PC"
+    },
+    {
+      "name": "precipitation increment",
+      "shefPhysicalElementCode": "PP"
+    },
+    {
+      "name": "profile temperature"
+    },
+    {
+      "name": "pulse line monitor-eti guage"
+    },
+    {
+      "name": "radiation incoming longwave"
+    },
+    {
+      "name": "radiation incoming shortwave"
+    },
+    {
+      "name": "radiation outgoing longwave"
+    },
+    {
+      "name": "radiation outgoing shortwave"
+    },
+    {
+      "name": "real dielectric constant",
+      "shefPhysicalElementCode": "MD"
+    },
+    {
+      "name": "relative humidity",
+      "shefPhysicalElementCode": "XR"
+    },
+    {
+      "name": "relative humidity enclosure"
+    },
+    {
+      "name": "reservoir volume adjusted"
+    },
+    {
+      "name": "runoff volume ",
+      "shefPhysicalElementCode": "QC"
+    },
+    {
+      "name": "salinity",
+      "shefPhysicalElementCode": "MN"
+    },
+    {
+      "name": "snow density",
+      "shefPhysicalElementCode": "SS"
+    },
+    {
+      "name": "snow depth",
+      "shefPhysicalElementCode": "SD"
+    },
+    {
+      "name": "snow rain ratio",
+      "shefPhysicalElementCode": "SD"
+    },
+    {
+      "name": "snow temperature",
+      "shefPhysicalElementCode": "ST"
+    },
+    {
+      "name": "snow water equivalent",
+      "shefPhysicalElementCode": "SW"
+    },
+    {
+      "name": "soil moisture bars"
+    },
+    {
+      "name": "soil moisture percent",
+      "shefPhysicalElementCode": "MV"
+    },
+    {
+      "name": "soil temperature",
+      "shefPhysicalElementCode": "TV"
+    },
+    {
+      "name": "solar radiation - accumulated",
+      "shefPhysicalElementCode": "RI"
+    },
+    {
+      "name": "solar radiation - net",
+      "shefPhysicalElementCode": "RN"
+    },
+    {
+      "name": "solar radiation - total",
+      "shefPhysicalElementCode": "RW"
+    },
+    {
+      "name": "stream flow volume adjusted for upstream projects"
+    },
+    {
+      "name": "stream flow volume adjusted manual/external"
+    },
+    {
+      "name": "stream flow volume unadjusted"
+    },
+    {
+      "name": "stream stage (gauge height)",
+      "shefPhysicalElementCode": "HG"
+    },
+    {
+      "name": "turbidity",
+      "shefPhysicalElementCode": "WT"
+    },
+    {
+      "name": "vapor pressure - partial"
+    },
+    {
+      "name": "vapor pressure - saturated"
+    },
+    {
+      "name": "water level",
+      "shefPhysicalElementCode": "WD"
+    },
+    {
+      "name": "water temperature",
+      "shefPhysicalElementCode": "TW"
+    },
+    {
+      "name": "well depth"
+    },
+    {
+      "name": "wind direction",
+      "shefPhysicalElementCode": "UD"
+    },
+    {
+      "name": "wind movement",
+      "shefPhysicalElementCode": "UL"
+    },
+    {
+      "name": "wind speed",
+      "shefPhysicalElementCode": "US"
+    },
+    {
+      "name": "z precipitation increment - snow-adjusted"
+    }
+  ],
+  "states": [
+    {
+      "code": "AL",
+      "fipsNumber": "01",
+      "name": "ALABAMA",
+      "countryCode": "US"
+    },
+    {
+      "code": "AK",
+      "fipsNumber": "02",
+      "name": "ALASKA",
+      "countryCode": "US"
+    },
+    {
+      "code": "AB",
+      "fipsNumber": "79",
+      "name": "ALBERTA",
+      "countryCode": "CA"
+    },
+    {
+      "code": "AS",
+      "fipsNumber": "60",
+      "name": "AMERICAN SAMOA",
+      "countryCode": "US"
+    },
+    {
+      "code": "AY",
+      "fipsNumber": "93",
+      "name": "Antarctica",
+      "countryCode": "AY"
+    },
+    {
+      "code": "AZ",
+      "fipsNumber": "04",
+      "name": "ARIZONA",
+      "countryCode": "US"
+    },
+    {
+      "code": "AR",
+      "fipsNumber": "05",
+      "name": "ARKANSAS",
+      "countryCode": "US"
+    },
+    {
+      "code": "BC",
+      "fipsNumber": "80",
+      "name": "BRITISH COLUMBIA",
+      "countryCode": "CA"
+    },
+    {
+      "code": "CA",
+      "fipsNumber": "06",
+      "name": "CALIFORNIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "CO",
+      "fipsNumber": "08",
+      "name": "COLORADO",
+      "countryCode": "US"
+    },
+    {
+      "code": "CT",
+      "fipsNumber": "09",
+      "name": "CONNECTICUT",
+      "countryCode": "US"
+    },
+    {
+      "code": "DE",
+      "fipsNumber": "10",
+      "name": "DELAWARE",
+      "countryCode": "US"
+    },
+    {
+      "code": "DC",
+      "fipsNumber": "11",
+      "name": "DISTRICT OF COLUMBIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "TC",
+      "fipsNumber": "0 ",
+      "name": "Fake State for Test",
+      "countryCode": "US"
+    },
+    {
+      "code": "FM",
+      "fipsNumber": "64",
+      "name": "FED STATES OF MICRONESIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "FL",
+      "fipsNumber": "12",
+      "name": "FLORIDA",
+      "countryCode": "US"
+    },
+    {
+      "code": "GA",
+      "fipsNumber": "13",
+      "name": "GEORGIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "GU",
+      "fipsNumber": "66",
+      "name": "GUAM",
+      "countryCode": "US"
+    },
+    {
+      "code": "HI",
+      "fipsNumber": "15",
+      "name": "HAWAII",
+      "countryCode": "US"
+    },
+    {
+      "code": "ID",
+      "fipsNumber": "16",
+      "name": "IDAHO",
+      "countryCode": "US"
+    },
+    {
+      "code": "IL",
+      "fipsNumber": "17",
+      "name": "ILLINOIS",
+      "countryCode": "US"
+    },
+    {
+      "code": "IN",
+      "fipsNumber": "18",
+      "name": "INDIANA",
+      "countryCode": "US"
+    },
+    {
+      "code": "IA",
+      "fipsNumber": "19",
+      "name": "IOWA",
+      "countryCode": "US"
+    },
+    {
+      "code": "KS",
+      "fipsNumber": "20",
+      "name": "KANSAS",
+      "countryCode": "US"
+    },
+    {
+      "code": "KY",
+      "fipsNumber": "21",
+      "name": "KENTUCKY",
+      "countryCode": "US"
+    },
+    {
+      "code": "LA",
+      "fipsNumber": "22",
+      "name": "LOUISIANA",
+      "countryCode": "US"
+    },
+    {
+      "code": "ME",
+      "fipsNumber": "23",
+      "name": "MAINE",
+      "countryCode": "US"
+    },
+    {
+      "code": "MB",
+      "fipsNumber": "81",
+      "name": "MANITOBA",
+      "countryCode": "CA"
+    },
+    {
+      "code": "MH",
+      "fipsNumber": "68",
+      "name": "MARSHALL ISLANDS",
+      "countryCode": "US"
+    },
+    {
+      "code": "MD",
+      "fipsNumber": "24",
+      "name": "MARYLAND",
+      "countryCode": "US"
+    },
+    {
+      "code": "MA",
+      "fipsNumber": "25",
+      "name": "MASSACHUSETTES",
+      "countryCode": "US"
+    },
+    {
+      "code": "MI",
+      "fipsNumber": "26",
+      "name": "MICHIGAN",
+      "countryCode": "US"
+    },
+    {
+      "code": "MN",
+      "fipsNumber": "27",
+      "name": "MINNESOTA",
+      "countryCode": "US"
+    },
+    {
+      "code": "MS",
+      "fipsNumber": "28",
+      "name": "MISSISSIPPI",
+      "countryCode": "US"
+    },
+    {
+      "code": "MO",
+      "fipsNumber": "29",
+      "name": "MISSOURI",
+      "countryCode": "US"
+    },
+    {
+      "code": "MT",
+      "fipsNumber": "30",
+      "name": "MONTANA",
+      "countryCode": "US"
+    },
+    {
+      "code": "NE",
+      "fipsNumber": "31",
+      "name": "NEBRASKA",
+      "countryCode": "US"
+    },
+    {
+      "code": "NV",
+      "fipsNumber": "32",
+      "name": "NEVADA",
+      "countryCode": "US"
+    },
+    {
+      "code": "NB",
+      "fipsNumber": "82",
+      "name": "NEW BRUNSWICK",
+      "countryCode": "CA"
+    },
+    {
+      "code": "NH",
+      "fipsNumber": "33",
+      "name": "NEW HAMPSHIRE",
+      "countryCode": "US"
+    },
+    {
+      "code": "NJ",
+      "fipsNumber": "34",
+      "name": "NEW JERSEY",
+      "countryCode": "US"
+    },
+    {
+      "code": "NM",
+      "fipsNumber": "35",
+      "name": "NEW MEXICO",
+      "countryCode": "US"
+    },
+    {
+      "code": "NY",
+      "fipsNumber": "36",
+      "name": "NEW YORK",
+      "countryCode": "US"
+    },
+    {
+      "code": "NL",
+      "fipsNumber": "83",
+      "name": "NEWFOUNDLAND AND LABRADOR",
+      "countryCode": "CA"
+    },
+    {
+      "code": "NC",
+      "fipsNumber": "37",
+      "name": "NORTH CAROLINA",
+      "countryCode": "US"
+    },
+    {
+      "code": "ND",
+      "fipsNumber": "38",
+      "name": "NORTH DAKOTA",
+      "countryCode": "US"
+    },
+    {
+      "code": "MP",
+      "fipsNumber": "69",
+      "name": "NORTHERN MARIANA ISLANDS",
+      "countryCode": "US"
+    },
+    {
+      "code": "NT",
+      "fipsNumber": "84",
+      "name": "NORTHWEST TERRITORIES",
+      "countryCode": "CA"
+    },
+    {
+      "code": "NA",
+      "fipsNumber": "99",
+      "name": "NOT APPLICABLE",
+      "countryCode": "NA"
+    },
+    {
+      "code": "NS",
+      "fipsNumber": "85",
+      "name": "NOVA SCOTIA",
+      "countryCode": "CA"
+    },
+    {
+      "code": "NU",
+      "fipsNumber": "86",
+      "name": "NUNAVUT",
+      "countryCode": "CA"
+    },
+    {
+      "code": "OH",
+      "fipsNumber": "39",
+      "name": "OHIO",
+      "countryCode": "US"
+    },
+    {
+      "code": "OK",
+      "fipsNumber": "40",
+      "name": "OKLAHOMA",
+      "countryCode": "US"
+    },
+    {
+      "code": "ON",
+      "fipsNumber": "87",
+      "name": "ONTARIO",
+      "countryCode": "CA"
+    },
+    {
+      "code": "OR",
+      "fipsNumber": "41",
+      "name": "OREGON",
+      "countryCode": "US"
+    },
+    {
+      "code": "PW",
+      "fipsNumber": "70",
+      "name": "PALAU",
+      "countryCode": "US"
+    },
+    {
+      "code": "PA",
+      "fipsNumber": "42",
+      "name": "PENNSYLVANIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "PE",
+      "fipsNumber": "88",
+      "name": "PRINCE EDWARD ISLAND",
+      "countryCode": "CA"
+    },
+    {
+      "code": "PR",
+      "fipsNumber": "72",
+      "name": "PUERTO RICO",
+      "countryCode": "US"
+    },
+    {
+      "code": "QC",
+      "fipsNumber": "89",
+      "name": "QUEBEC",
+      "countryCode": "CA"
+    },
+    {
+      "code": "RI",
+      "fipsNumber": "44",
+      "name": "RHODE ISLAND",
+      "countryCode": "US"
+    },
+    {
+      "code": "SK",
+      "fipsNumber": "90",
+      "name": "SASKATCHEWAN",
+      "countryCode": "CA"
+    },
+    {
+      "code": "SC",
+      "fipsNumber": "45",
+      "name": "SOUTH CAROLINA",
+      "countryCode": "US"
+    },
+    {
+      "code": "SD",
+      "fipsNumber": "46",
+      "name": "SOUTH DAKOTA",
+      "countryCode": "US"
+    },
+    {
+      "code": "TN",
+      "fipsNumber": "47",
+      "name": "TENNESSEE",
+      "countryCode": "US"
+    },
+    {
+      "code": "TX",
+      "fipsNumber": "48",
+      "name": "TEXAS",
+      "countryCode": "US"
+    },
+    {
+      "code": "UM",
+      "fipsNumber": "74",
+      "name": "US MINOR OUTLYING ISLANDS",
+      "countryCode": "US"
+    },
+    {
+      "code": "UT",
+      "fipsNumber": "49",
+      "name": "UTAH",
+      "countryCode": "US"
+    },
+    {
+      "code": "VT",
+      "fipsNumber": "50",
+      "name": "VERMONT",
+      "countryCode": "US"
+    },
+    {
+      "code": "VI",
+      "fipsNumber": "78",
+      "name": "VIRGIN ISLANDS OF THE US",
+      "countryCode": "US"
+    },
+    {
+      "code": "VA",
+      "fipsNumber": "51",
+      "name": "VIRGINIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "WA",
+      "fipsNumber": "53",
+      "name": "WASHINGTON",
+      "countryCode": "US"
+    },
+    {
+      "code": "WV",
+      "fipsNumber": "54",
+      "name": "WEST VIRGINIA",
+      "countryCode": "US"
+    },
+    {
+      "code": "WI",
+      "fipsNumber": "55",
+      "name": "WISCONSIN",
+      "countryCode": "US"
+    },
+    {
+      "code": "WY",
+      "fipsNumber": "56",
+      "name": "WYOMING",
+      "countryCode": "US"
+    },
+    {
+      "code": "YK",
+      "fipsNumber": "91",
+      "name": "YUKON TERRITORY",
+      "countryCode": "CA"
+    }
+  ],
+  "units": [
+    {
+      "code": "ac_ft",
+      "singularName": "acre foot",
+      "pluralName": "acre feet"
+    },
+    {
+      "code": "bar",
+      "singularName": "bar",
+      "pluralName": "bars",
+      "description": "barometric pressure"
+    },
+    {
+      "code": "cfs",
+      "singularName": "cfs",
+      "pluralName": "cfs",
+      "description": "cubic feet per second"
+    },
+    {
+      "code": "cm",
+      "singularName": "centimeter",
+      "pluralName": "centimeters"
+    },
+    {
+      "code": "dam^3",
+      "singularName": "cubic dekameter",
+      "pluralName": "cubic dekameters",
+      "description": "cubic dekameters"
+    },
+    {
+      "code": "date",
+      "singularName": "date",
+      "pluralName": "date",
+      "description": "calendar date (peak flow date forecasts)"
+    },
+    {
+      "code": "day",
+      "singularName": "day",
+      "pluralName": "days"
+    },
+    {
+      "code": "deg_dayC",
+      "singularName": "degree day celcius",
+      "pluralName": "degree days celcius",
+      "description": "degree day in celcius"
+    },
+    {
+      "code": "deg_dayF",
+      "singularName": "degree day fahrenheit",
+      "pluralName": "degree days fahrenheit",
+      "description": "degree day in fahrenheit"
+    },
+    {
+      "code": "degC",
+      "singularName": "degree celcius",
+      "pluralName": "degrees celcius"
+    },
+    {
+      "code": "degF",
+      "singularName": "degree fahrenheit",
+      "pluralName": "degrees fahrenheit"
+    },
+    {
+      "code": "degree",
+      "singularName": "degree",
+      "pluralName": "degrees",
+      "description": "degrees: wind direction"
+    },
+    {
+      "code": "fcst",
+      "singularName": "forecast",
+      "pluralName": "forecast",
+      "description": "output from upstream forecast"
+    },
+    {
+      "code": "ft",
+      "singularName": "foot",
+      "pluralName": "feet",
+      "description": "feet"
+    },
+    {
+      "code": "ft3",
+      "singularName": "cubic foot",
+      "pluralName": "cubic feet"
+    },
+    {
+      "code": "gallon",
+      "singularName": "gallon",
+      "pluralName": "gallons"
+    },
+    {
+      "code": "gram",
+      "singularName": "gram",
+      "pluralName": "grams"
+    },
+    {
+      "code": "gram/cal",
+      "singularName": "gram/cal",
+      "pluralName": "grams/cal"
+    },
+    {
+      "code": "gram/l",
+      "singularName": "gram/liter",
+      "pluralName": "grams/liter"
+    },
+    {
+      "code": "hectare_m",
+      "singularName": "hectare meter",
+      "pluralName": "hectare meters"
+    },
+    {
+      "code": "hr",
+      "singularName": "hour",
+      "pluralName": "hours"
+    },
+    {
+      "code": "in",
+      "singularName": "inch",
+      "pluralName": "inches"
+    },
+    {
+      "code": "inch_H2O",
+      "singularName": "inch_H2O",
+      "pluralName": "inches_H2O"
+    },
+    {
+      "code": "inch_Hg",
+      "singularName": "inch Hg",
+      "pluralName": "inches Hg",
+      "description": "inches of mercury"
+    },
+    {
+      "code": "julian_day",
+      "singularName": "julian day",
+      "pluralName": "julian days",
+      "description": "Julian day"
+    },
+    {
+      "code": "kac_ft",
+      "singularName": "thousand acre-feet",
+      "pluralName": "thousands acre-feet"
+    },
+    {
+      "code": "kg",
+      "singularName": "kilogram",
+      "pluralName": "kilograms"
+    },
+    {
+      "code": "km",
+      "singularName": "kilometer",
+      "pluralName": "kilometers"
+    },
+    {
+      "code": "km/hr",
+      "singularName": "kilometer/hour",
+      "pluralName": "kilometers/hour"
+    },
+    {
+      "code": "knot",
+      "singularName": "knot",
+      "pluralName": "knots"
+    },
+    {
+      "code": "kohm",
+      "singularName": "kohm",
+      "pluralName": "kohms"
+    },
+    {
+      "code": "kPa",
+      "singularName": "kPa",
+      "pluralName": "kPa",
+      "description": "kilopascal"
+    },
+    {
+      "code": "langley",
+      "singularName": "langley",
+      "pluralName": "langleys"
+    },
+    {
+      "code": "langley/day",
+      "singularName": "langley/day",
+      "pluralName": "langley/day"
+    },
+    {
+      "code": "lb",
+      "singularName": "pound",
+      "pluralName": "pounds"
+    },
+    {
+      "code": "m",
+      "singularName": "meter",
+      "pluralName": "meters"
+    },
+    {
+      "code": "m/s",
+      "singularName": "meter/second",
+      "pluralName": "meters/second"
+    },
+    {
+      "code": "m3",
+      "singularName": "cubic meter",
+      "pluralName": "cubic meters",
+      "description": "cubic meters"
+    },
+    {
+      "code": "m3/s",
+      "singularName": "cubic meter/second",
+      "pluralName": "cubic meters/second",
+      "description": "cubic meters per second"
+    },
+    {
+      "code": "mbar",
+      "singularName": "millibar",
+      "pluralName": "millibars"
+    },
+    {
+      "code": "mgram/l",
+      "singularName": "milligram/liter",
+      "pluralName": "milligrams/liter"
+    },
+    {
+      "code": "micromole/m2/s",
+      "singularName": "micromole/meters squared/second",
+      "pluralName": "micromoles/meters squared/second",
+      "description": "micromoles per meters squared per second"
+    },
+    {
+      "code": "mile",
+      "singularName": "mile",
+      "pluralName": "miles"
+    },
+    {
+      "code": "mile/s",
+      "singularName": "mile/second",
+      "pluralName": "mile/second"
+    },
+    {
+      "code": "millimole/m2",
+      "singularName": "millimole/meters squared",
+      "pluralName": "millimole/meters squared",
+      "description": "millimoles per meters squared"
+    },
+    {
+      "code": "min",
+      "singularName": "minute",
+      "pluralName": "minutes"
+    },
+    {
+      "code": "miners_inc",
+      "singularName": "miners_inch",
+      "pluralName": "miners_inches",
+      "description": ".03966 acre_foot"
+    },
+    {
+      "code": "MJ/m2",
+      "singularName": "megajoule per square meter",
+      "pluralName": "megajoules per square meter"
+    },
+    {
+      "code": "mm",
+      "singularName": "millimeter",
+      "pluralName": "millimeters"
+    },
+    {
+      "code": "mm_Hg",
+      "singularName": "millimeter of mercury",
+      "pluralName": "millimeters of mercury"
+    },
+    {
+      "code": "mph",
+      "singularName": "mile/hour",
+      "pluralName": "miles/hour"
+    },
+    {
+      "code": "mvolt",
+      "singularName": "millivolt",
+      "pluralName": "millivolts"
+    },
+    {
+      "code": "nmile",
+      "singularName": "nautical mile",
+      "pluralName": "nautical miles"
+    },
+    {
+      "code": "ntu",
+      "singularName": "nethelometric turbidity u",
+      "pluralName": "nethelometric turbidity u"
+    },
+    {
+      "code": "oz",
+      "singularName": "ounce",
+      "pluralName": "ounces"
+    },
+    {
+      "code": "part",
+      "singularName": "particle",
+      "pluralName": "particles"
+    },
+    {
+      "code": "part/hr",
+      "singularName": "particle/hour",
+      "pluralName": "particles/hour"
+    },
+    {
+      "code": "pct",
+      "singularName": "percent",
+      "pluralName": "percent",
+      "description": "percentage: 1-100"
+    },
+    {
+      "code": "pH",
+      "singularName": "pH",
+      "pluralName": "pH",
+      "description": "acidity"
+    },
+    {
+      "code": "ppb",
+      "singularName": "part/billion",
+      "pluralName": "parts/billion"
+    },
+    {
+      "code": "ppm",
+      "singularName": "part/million",
+      "pluralName": "parts/million"
+    },
+    {
+      "code": "s",
+      "singularName": "second",
+      "pluralName": "seconds"
+    },
+    {
+      "code": "umho",
+      "singularName": "micro mhos"
+    },
+    {
+      "code": "unitless",
+      "singularName": "unitless",
+      "pluralName": "unitless"
+    },
+    {
+      "code": "unknown",
+      "singularName": "unknown",
+      "pluralName": "unknown",
+      "description": "unknown"
+    },
+    {
+      "code": "volt",
+      "singularName": "volt",
+      "pluralName": "volts",
+      "description": "volts"
+    },
+    {
+      "code": "watt",
+      "singularName": "watt",
+      "pluralName": "watts",
+      "description": "watts"
+    },
+    {
+      "code": "watt/m2",
+      "singularName": "watt/meter squared",
+      "pluralName": "watts/meter squared"
+    }
+  ]
+}
