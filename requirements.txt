@@ -11,3 +11,6 @@ h5netcdf
 rasterio
 shapely
 xarray
+scikit-learn
+torch
+torchvision
