@@ -1,2 +1,3 @@
 __pycache__
 snotel_data.parquet
+*.pkl
