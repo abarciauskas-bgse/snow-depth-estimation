@@ -66,8 +66,8 @@ class SnotelHlsData(HlsDataBase):
     def initialize_values(self):
         """Initialize point-based band values"""
         for i in range(1, 11):
-            setattr(self, f'B{i:02d}', -9999)
-        self.is_snow = -9999
+            setattr(self, f'B{i:02d}', None)
+        self.is_snow = None
     
     def set_3857_latlon(self):
         """Convert lat/lon to dataset CRS"""
@@ -122,28 +122,20 @@ class HlsPolygonMergedData(HlsDataBase):
         sample_dataset = rioxarray.open_rasterio(self.fs.open(self.bands_to_files['B01']))
         self.target_crs = sample_dataset.rio.crs
         
-        # Convert polygon to target CRS
-        if hasattr(self.polygon, 'crs'):
-            gdf = gpd.GeoDataFrame([1], geometry=[self.polygon], crs='EPSG:4326')
-            self.polygon_projected = gdf.to_crs(self.target_crs).geometry.iloc[0]
-        else:
-            gdf = gpd.GeoDataFrame([1], geometry=[self.polygon], crs='EPSG:4326')
-            self.polygon_projected = gdf.to_crs(self.target_crs).geometry.iloc[0]
-        
-        # Calculate area in square meters
-        if self.target_crs.to_string().startswith('EPSG:326'):  # UTM zones
-            self.polygon_area_m2 = self.polygon_projected.area
-        else:
-            # Convert to appropriate UTM for area calculation
-            centroid = self.polygon.centroid
-            utm_zone = int((centroid.x + 180) / 6) + 1
-            utm_crs = f"EPSG:{32600 + utm_zone}"
-            gdf_utm = gpd.GeoDataFrame(self.polygon, crs='EPSG:4326').to_crs(utm_crs)
-            self.polygon_area_m2 = gdf_utm.geometry.iloc[0].area
-    
-    def create_merged_dataset(self) -> xr.Dataset:
+        gdf = gpd.GeoDataFrame([1], geometry=[self.polygon], crs='EPSG:4326')
+        self.polygon_projected = gdf.to_crs(self.target_crs).geometry.iloc[0]
+
+    def polygon_fully_covered(self, dataset: xr.Dataset) -> bool:
+        """Check if polygon is fully covered by HLS data"""
+        from shapely.geometry import box
+        ds_bounds = dataset.rio.bounds()
+        ds_box = box(ds_bounds[0], ds_bounds[1], ds_bounds[2], ds_bounds[3])
+        return ds_box.contains(self.polygon_projected)
+
+    def create_merged_dataset(self) -> xr.Dataset | None:
         """Create merged xarray dataset with all HLS bands"""
         band_arrays = {}
+        polygon_fully_covered = True
         
         # Get band names in order (B01-B10)
         band_names = [f'B{i:02d}' for i in range(1, 11)] + ['Fmask']
@@ -154,16 +146,23 @@ class HlsPolygonMergedData(HlsDataBase):
         for band in available_bands:
             if band not in self.bands_to_files:
                 continue
-                
-            print(f"Loading band {band}...")
+            if not polygon_fully_covered:
+                continue
+
             file_url = self.bands_to_files[band]
             
             try:
                 # Open the dataset
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
                 
-                # clip data
-                #dataset = dataset.rio.clip([self.polygon_projected], self.target_crs, drop=True)
+                # check if polygon is fully covered
+                # we can't calculate the total volume of snow if the polygon is not fully covered
+                # so we return None
+                polygon_fully_covered = self.polygon_fully_covered(dataset)
+                if not polygon_fully_covered:
+                    return None
+
+                dataset = dataset.rio.clip([self.polygon_projected], self.target_crs, drop=True)
                 
                 # Remove the band dimension (squeeze) since each file has only one band
                 dataset = dataset.squeeze('band', drop=True)
@@ -177,13 +176,10 @@ class HlsPolygonMergedData(HlsDataBase):
                 print(f"Error loading band {band}: {e}")
                 continue
         
-        if not band_arrays:
-            raise ValueError("No valid bands found for merging")
-
-        
         # Create merged dataset
         merged_dataset = xr.Dataset(band_arrays)
         merged_dataset.rio.write_crs(self.target_crs, inplace=True)
+        merged_dataset = merged_dataset.expand_dims({'time': [self.date]})
            
         return merged_dataset
     
@@ -194,8 +190,11 @@ class HlsPolygonMergedData(HlsDataBase):
         # Create merged dataset
         self.merged_dataset = self.create_merged_dataset()
         
-        print(f"Merged dataset shape: {self.merged_dataset.dims}")
-        print(f"Merged dataset variables: {self.merged_dataset.data_vars}")
+        if self.merged_dataset is None:
+            print("No dataset returned")
+            return None
+        else:
+            print(f"Merged dataset shape: {self.merged_dataset.dims}")
 
 
 def for_parquet_insert(snotel_hls_items: list[SnotelHlsData]) -> dict[str, list]:
