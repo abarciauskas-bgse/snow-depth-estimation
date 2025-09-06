@@ -1,13 +1,14 @@
 from abc import ABC, abstractmethod
-from earthaccess import DataGranule
+import earthaccess
+import pystac
 import fsspec
 from pyproj import Transformer
 import rioxarray
 import xarray as xr
-import requests
 import numpy as np
 from datetime import datetime
 from dataclasses import dataclass
+import requests
 from shapely.geometry import Polygon
 import geopandas as gpd
 from typing import Optional, Dict, Any, Union
@@ -16,23 +17,39 @@ from typing import Optional, Dict, Any, Union
 class HlsDataBase(ABC):
     """Base class for HLS data processing"""
     fs: fsspec.AbstractFileSystem
-    granule: DataGranule
+    item: earthaccess.DataGranule | pystac.item.Item
     
     def __post_init__(self):
+        if isinstance(self.item, earthaccess.DataGranule):
+            self.item_id = self.item["meta"]["concept-id"]
+        elif isinstance(self.item, pystac.item.Item):
+            self.item_id = self.item.id
+        else:
+            raise ValueError(f"Invalid item type: {type(self.item)}")
         self.bands_to_files = self.bands_to_files()
-        self.granule_id = self.granule["meta"]["concept-id"]
         self.set_date()
         self.initialize_values()
     
     def set_date(self):
         """Extract date from granule metadata"""
-        temporal_data = self.granule["umm"]["TemporalExtent"]["RangeDateTime"]
-        _, end_date = temporal_data["BeginningDateTime"], temporal_data["EndingDateTime"]
-        self.date = end_date
+        if isinstance(self.item, earthaccess.DataGranule):
+            temporal_data = self.item["umm"]["TemporalExtent"]["RangeDateTime"]
+            self.date = temporal_data["EndingDateTime"]
+        elif isinstance(self.item, pystac.item.Item):
+            self.date = self.item.to_dict()['properties']['datetime']
+        else:
+            raise ValueError(f"Invalid item type: {type(self.item)}")
     
     def bands_to_files(self) -> Dict[str, str]:
         """Map band names to file URLs"""
-        return {link.split('/')[-1].split('.')[-2]: link for link in self.granule.data_links()}
+        if isinstance(self.item, earthaccess.DataGranule):
+            return {link.split('/')[-1].split('.')[-2]: link for link in self.item.data_links()}
+        elif isinstance(self.item, pystac.item.Item):
+            primary_assets = {asset_key: asset['alternate']['s3']['href'] if asset.get('alternate', {}).get('s3', {}).get('href', None) else None for asset_key, asset in self.item.to_dict()['assets'].items()}
+            snow_asset = requests.get(self.item.self_href.replace('landsat-c2ard-sr', 'landsat-c2l3-fsca').replace('SR', 'SNOW')).json()['assets']['viewable_snow']['alternate']['s3']['href']
+            return {**primary_assets, 'fsca': snow_asset}
+        else:
+            raise ValueError(f"Invalid item type: {type(self.item)}")
     
     @abstractmethod
     def initialize_values(self):
@@ -65,13 +82,15 @@ class SnotelHlsData(HlsDataBase):
     
     def initialize_values(self):
         """Initialize point-based band values"""
-        for i in range(1, 11):
-            setattr(self, f'B{i:02d}', None)
-        self.is_snow = None
+        pass
     
     def set_3857_latlon(self):
         """Convert lat/lon to dataset CRS"""
-        dataset = rioxarray.open_rasterio(self.fs.open(self.bands_to_files['B01']))
+        if isinstance(self.item, earthaccess.DataGranule):
+            band = 'B01'
+        else:
+            band = 'red'
+        dataset = rioxarray.open_rasterio(self.fs.open(self.bands_to_files[band]))
         transformer = Transformer.from_crs("EPSG:4326", dataset.rio.crs, always_xy=True)
         self.lon_3857, self.lat_3857 = transformer.transform(self.lon, self.lat)
     
@@ -87,17 +106,35 @@ class SnotelHlsData(HlsDataBase):
         snotel_data = response.json()
         self.snow_depth = snotel_data[0]['data'][0]['values'][0]["value"]
     
+    landsat_band_names = {
+        'coastal': 'B01',
+        'blue': 'B02',
+        'green': 'B03',
+        'red': 'B04',
+        'nir08': 'B05',
+        'swir16': 'B06',
+        'swir22': 'B07',
+        'fsca': 'fsca'
+    }
+
     def process_hls_data(self):
         """Extract HLS data at point location"""
-        for band, file in self.bands_to_files.items():
-            if not band.startswith('B') and not band == 'Fmask':
-                continue
-            dataset = rioxarray.open_rasterio(self.fs.open(file))
-            value = dataset.sel(x=self.lon_3857, y=self.lat_3857, method='nearest').values[0]
-            if band.startswith('B'):
-                setattr(self, band, value)
-            elif band == 'Fmask':
-                self.is_snow = (value & 16) > 0
+        if isinstance(self.item, earthaccess.DataGranule):
+            for band, file in self.bands_to_files.items():
+                if not band.startswith('B') and not band == 'Fmask':
+                    continue
+                dataset = rioxarray.open_rasterio(self.fs.open(file))
+                value = dataset.sel(x=self.lon_3857, y=self.lat_3857, method='nearest').values[0]
+                if band.startswith('B'):
+                    setattr(self, band, value)
+                elif band == 'Fmask':
+                    self.is_snow = (value & 16) > 0
+        elif isinstance(self.item, pystac.item.Item): 
+            for band, file in self.bands_to_files.items():
+                if band in self.landsat_band_names.keys():
+                    dataset = rioxarray.open_rasterio(self.fs.open(file))
+                    value = dataset.sel(x=self.lon_3857, y=self.lat_3857, method='nearest').values[0]
+                    setattr(self, band, value)
 
 
 @dataclass
@@ -201,17 +238,14 @@ def for_parquet_insert(snotel_hls_items: list[SnotelHlsData]) -> dict[str, list]
     return {
         'date': [item.date for item in snotel_hls_items],
         'snow_depth': [item.snow_depth for item in snotel_hls_items],
-        'B01': [item.B01 for item in snotel_hls_items],
-        'B02': [item.B02 for item in snotel_hls_items],
-        'B03': [item.B03 for item in snotel_hls_items],
-        'B04': [item.B04 for item in snotel_hls_items],
-        'B05': [item.B05 for item in snotel_hls_items],
-        'B06': [item.B06 for item in snotel_hls_items],
-        'B07': [item.B07 for item in snotel_hls_items],
-        'B08': [item.B08 for item in snotel_hls_items],
-        'B09': [item.B09 for item in snotel_hls_items],
-        'B10': [item.B10 for item in snotel_hls_items],
-        'is_snow': [item.is_snow for item in snotel_hls_items],
-        'granule_id': [item.granule_id for item in snotel_hls_items],
+        'coastal': [item.coastal for item in snotel_hls_items],
+        'blue': [item.blue for item in snotel_hls_items],
+        'green': [item.green for item in snotel_hls_items],
+        'red': [item.red for item in snotel_hls_items],
+        'nir08': [item.nir08 for item in snotel_hls_items],
+        'swir16': [item.swir16 for item in snotel_hls_items],
+        'swir22': [item.swir22 for item in snotel_hls_items],
+        'fsca': [item.fsca for item in snotel_hls_items],
+        'item_id': [item.item_id for item in snotel_hls_items],
         'station_triplet': [item.station_triplet for item in snotel_hls_items],
     }

@@ -6,21 +6,34 @@ from PIL import Image
 import numpy as np
 import rasterio
 import earthaccess
+import pystac
 
-def get_granule_bounds(granule: earthaccess.DataGranule):
-    bounding_points = granule["umm"]["SpatialExtent"]["HorizontalSpatialDomain"]["Geometry"]["GPolygons"][0]["Boundary"]["Points"]
-    latitudes = [point["Latitude"] for point in bounding_points]
-    longitudes = [point["Longitude"] for point in bounding_points]
-    return [
-        [min(latitudes), min(longitudes)],
-        [max(latitudes), max(longitudes)]
-    ]
+def get_granule_bounds(granule: earthaccess.DataGranule | pystac.item.Item):
+    if isinstance(granule, earthaccess.DataGranule):
+        bounding_points = granule["umm"]["SpatialExtent"]["HorizontalSpatialDomain"]["Geometry"]["GPolygons"][0]["Boundary"]["Points"]
+        latitudes = [point["Latitude"] for point in bounding_points]
+        longitudes = [point["Longitude"] for point in bounding_points]
+        return [
+            [min(latitudes), min(longitudes)],
+            [max(latitudes), max(longitudes)]
+        ]
+    elif isinstance(granule, pystac.item.Item):
+        return [[granule.bbox[1], granule.bbox[0]], [granule.bbox[3], granule.bbox[2]]]
+    else:
+        raise ValueError(f"Invalid granule type: {type(granule)}")
 
-def bands_to_files(granule: earthaccess.DataGranule):
-    return {link.split('/')[-1].split('.')[-2]: link for link in granule.data_links()}
+import pystac
 
-def get_band_data(fs: fsspec.AbstractFileSystem, granule: earthaccess.DataGranule, band: str):
-    return rasterio.open(fs.open(bands_to_files(granule)[band])).read(1)
+def bands_to_files(item: earthaccess.DataGranule | pystac.item.Item):
+    if isinstance(item, earthaccess.DataGranule):
+        return {link.split('/')[-1].split('.')[-2]: link for link in item.data_links()}
+    elif isinstance(item, pystac.item.Item):
+        return {asset_key: asset['alternate']['s3']['href'] if asset.get('alternate', {}).get('s3', {}).get('href', None) else None for asset_key, asset in item.to_dict()['assets'].items()}
+    else:
+        raise ValueError(f"Invalid item type: {type(item)}")
+
+def get_band_data(fs: fsspec.AbstractFileSystem, item: earthaccess.DataGranule | pystac.item.Item, band: str):
+    return rasterio.open(fs.open(bands_to_files(item)[band])).read(1)
 
 def rgb_image_str(red, green, blue):
     rgb = np.stack([red, green, blue], axis=0)

@@ -20,3 +20,4 @@ uv pip install -r requirements.txt
   - STAC root: https://landsatlook.usgs.gov/stac-server/collections/
   - homepage with tutorial: https://www.usgs.gov/landsat-missions/landsat-commercial-cloud-data-access
 - investigate B08 - some scenes have it and some don't
+- Use requester pays s3 access for landsat data

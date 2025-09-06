@@ -12,5 +12,4 @@ rasterio
 shapely
 xarray
 scikit-learn
-torch
-torchvision
+pystac-client
