@@ -8,19 +8,19 @@ import rasterio
 import earthaccess
 import pystac
 
-def get_granule_bounds(granule: earthaccess.DataGranule | pystac.item.Item):
-    if isinstance(granule, earthaccess.DataGranule):
-        bounding_points = granule["umm"]["SpatialExtent"]["HorizontalSpatialDomain"]["Geometry"]["GPolygons"][0]["Boundary"]["Points"]
+def get_item_bounds(item: earthaccess.DataGranule | pystac.item.Item):
+    if isinstance(item, earthaccess.DataGranule):
+        bounding_points = item["umm"]["SpatialExtent"]["HorizontalSpatialDomain"]["Geometry"]["GPolygons"][0]["Boundary"]["Points"]
         latitudes = [point["Latitude"] for point in bounding_points]
         longitudes = [point["Longitude"] for point in bounding_points]
         return [
             [min(latitudes), min(longitudes)],
             [max(latitudes), max(longitudes)]
         ]
-    elif isinstance(granule, pystac.item.Item):
-        return [[granule.bbox[1], granule.bbox[0]], [granule.bbox[3], granule.bbox[2]]]
+    elif isinstance(item, pystac.item.Item):
+        return [[item.bbox[1], item.bbox[0]], [item.bbox[3], item.bbox[2]]]
     else:
-        raise ValueError(f"Invalid granule type: {type(granule)}")
+        raise ValueError(f"Invalid item type: {type(item)}")
 
 import pystac
 

@@ -46,7 +46,11 @@ class HlsDataBase(ABC):
             return {link.split('/')[-1].split('.')[-2]: link for link in self.item.data_links()}
         elif isinstance(self.item, pystac.item.Item):
             primary_assets = {asset_key: asset['alternate']['s3']['href'] if asset.get('alternate', {}).get('s3', {}).get('href', None) else None for asset_key, asset in self.item.to_dict()['assets'].items()}
-            snow_asset = requests.get(self.item.self_href.replace('landsat-c2ard-sr', 'landsat-c2l3-fsca').replace('SR', 'SNOW')).json()['assets']['viewable_snow']['alternate']['s3']['href']
+            snow_item = requests.get(self.item.self_href.replace('landsat-c2ard-sr', 'landsat-c2l3-fsca').replace('SR', 'SNOW')).json()
+            if snow_item.get('assets', {}).get('viewable_snow', {}).get('alternate', {}).get('s3', {}).get('href', None):
+                snow_asset = snow_item['assets']['viewable_snow']['alternate']['s3']['href']
+            else:
+                snow_asset = None
             return {**primary_assets, 'fsca': snow_asset}
         else:
             raise ValueError(f"Invalid item type: {type(self.item)}")
