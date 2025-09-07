@@ -1,15 +1,19 @@
+# data search
 earthaccess
-folium
-geopandas
-h5netcdf
-rasterio
-shapely
-xarray
-folium
-geopandas
-h5netcdf
-rasterio
-shapely
-xarray
 scikit-learn
-pystac-client
+
+# data access
+fsspec
+requests
+
+# data processing
+geopandas
+rasterio
+rioxarray
+pyarrow
+shapely
+xarray
+pyproj
+
+# data visualization
+folium
