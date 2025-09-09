@@ -72,7 +72,17 @@ class SnotelHlsData(HlsDataBase):
     lat: float
     lon: float
     station_triplet: str
-    
+    landsat_band_names = {
+        'coastal': 'B01',
+        'blue': 'B02',
+        'green': 'B03',
+        'red': 'B04',
+        'nir08': 'B05',
+        'swir16': 'B06',
+        'swir22': 'B07',
+        'fsca': 'fsca'
+    }
+
     def __post_init__(self):
         super().__post_init__()
         self.set_3857_latlon()
@@ -86,7 +96,9 @@ class SnotelHlsData(HlsDataBase):
     
     def initialize_values(self):
         """Initialize point-based band values"""
-        pass
+        for band_name in self.landsat_band_names.keys():
+            setattr(self, band_name, None)
+        self.is_snow = None
     
     def set_3857_latlon(self):
         """Convert lat/lon to dataset CRS"""
@@ -109,17 +121,6 @@ class SnotelHlsData(HlsDataBase):
         response = requests.get("https://wcc.sc.egov.usda.gov/awdbRestApi/services/v1/data", params=params)
         snotel_data = response.json()
         self.snow_depth = snotel_data[0]['data'][0]['values'][0]["value"]
-    
-    landsat_band_names = {
-        'coastal': 'B01',
-        'blue': 'B02',
-        'green': 'B03',
-        'red': 'B04',
-        'nir08': 'B05',
-        'swir16': 'B06',
-        'swir22': 'B07',
-        'fsca': 'fsca'
-    }
 
     def process_hls_data(self):
         """Extract HLS data at point location"""
