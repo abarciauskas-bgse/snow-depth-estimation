@@ -115,23 +115,10 @@ class HLSDataExtractor(SatelliteDataExtractor):
         'red': 'B04',
         'nir08': 'B05',
         'swir16': 'B06',
-        'swir22': 'B07'
+        'swir22': 'B07',
+        'fsca': 'fsca'
     }
-    
-    SENTINEL_BANDS = {
-        'coastal': 'B01',
-        'blue': 'B02',
-        'green': 'B03', 
-        'red': 'B04',
-        'rededge1': 'B05',
-        'rededge2': 'B06',
-        'rededge3': 'B07',
-        'nir08': 'B08',
-        'nir09': 'B8A',
-        'swir16': 'B11',
-        'swir22': 'B12'
-    }
-    
+
     def _map_bands_to_files(self) -> Dict[str, str]:
         """Map band names to file URLs for HLS data"""
         if isinstance(self.item, earthaccess.DataGranule):
@@ -278,14 +265,14 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
     return {
         'date': [item.date for item in snotel_hls_items],
         'snow_depth': [item.snow_depth for item in snotel_hls_items],
-        'coastal': [item.band_values['coastal'] for item in snotel_hls_items],
-        'blue': [item.band_values['blue'] for item in snotel_hls_items],
-        'green': [item.band_values['green'] for item in snotel_hls_items],
-        'red': [item.band_values['red'] for item in snotel_hls_items],
-        'nir08': [item.band_values['nir08'] for item in snotel_hls_items],
-        'swir16': [item.band_values['swir16'] for item in snotel_hls_items],
-        'swir22': [item.band_values['swir22'] for item in snotel_hls_items],
-        'fsca': [item.band_values['fsca'] for item in snotel_hls_items],
+        'coastal': [item.band_values.get('coastal', None) for item in snotel_hls_items],
+        'blue': [item.band_values.get('blue', None) for item in snotel_hls_items],
+        'green': [item.band_values.get('green', None) for item in snotel_hls_items],
+        'red': [item.band_values.get('red', None) for item in snotel_hls_items],
+        'nir08': [item.band_values.get('nir08', None) for item in snotel_hls_items],
+        'swir16': [item.band_values.get('swir16', None) for item in snotel_hls_items],
+        'swir22': [item.band_values.get('swir22', None) for item in snotel_hls_items],
+        'fsca': [item.band_values.get('fsca', None) for item in snotel_hls_items],
         'item_id': [item.item_id for item in snotel_hls_items],
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
     }
