@@ -34,8 +34,8 @@ class SatelliteDataPoint:
             'date': self.date,
             'item_id': self.item_id,
             'snow_depth': self.snow_depth,
+            'metadata': self.metadata,
             **self.band_values,
-            **{f'meta_{k}': v for k, v in self.metadata.items()}
         }
     
     def has_ground_truth(self) -> bool:
@@ -258,6 +258,7 @@ class SatelliteDataManager:
                 point.lat, point.lon, point.date
             )
             point.snow_depth = snow_depth
+            point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
             
         return data_points
     
@@ -273,3 +274,18 @@ class SatelliteDataManager:
         """Filter to only data points with valid ground truth"""
         return [point for point in data_points if point.has_ground_truth()]
 
+def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, list]:
+    return {
+        'date': [item.date for item in snotel_hls_items],
+        'snow_depth': [item.snow_depth for item in snotel_hls_items],
+        'coastal': [item.band_values['coastal'] for item in snotel_hls_items],
+        'blue': [item.band_values['blue'] for item in snotel_hls_items],
+        'green': [item.band_values['green'] for item in snotel_hls_items],
+        'red': [item.band_values['red'] for item in snotel_hls_items],
+        'nir08': [item.band_values['nir08'] for item in snotel_hls_items],
+        'swir16': [item.band_values['swir16'] for item in snotel_hls_items],
+        'swir22': [item.band_values['swir22'] for item in snotel_hls_items],
+        'fsca': [item.band_values['fsca'] for item in snotel_hls_items],
+        'item_id': [item.item_id for item in snotel_hls_items],
+        'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
+    }
