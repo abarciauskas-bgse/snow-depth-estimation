@@ -198,6 +198,9 @@ class GroundTruthProvider(ABC):
 class SNOTELProvider(GroundTruthProvider):
     """SNOTEL ground truth provider"""
     station_triplet: str
+    latitude: float
+    longitude: float
+    elevation: float
     
     def get_snow_depth(self, lat: float, lon: float, date: str) -> Optional[float]:
         """Get SNOTEL snow depth for the station"""
@@ -275,4 +278,7 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
         'fsca': [item.band_values.get('fsca', None) for item in snotel_hls_items],
         'item_id': [item.item_id for item in snotel_hls_items],
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
+        'latitude': [item.metadata['latitude'] for item in snotel_hls_items],
+        'longitude': [item.metadata['longitude'] for item in snotel_hls_items],
+        'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
     }
