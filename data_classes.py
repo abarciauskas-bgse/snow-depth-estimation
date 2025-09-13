@@ -249,6 +249,9 @@ class SatelliteDataManager:
             )
             point.snow_depth = snow_depth
             point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
+            point.metadata['latitude'] = self.ground_truth_provider.latitude
+            point.metadata['longitude'] = self.ground_truth_provider.longitude
+            point.metadata['elevation'] = self.ground_truth_provider.elevation
             
         return data_points
     
