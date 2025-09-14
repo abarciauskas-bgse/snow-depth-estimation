@@ -193,23 +193,48 @@ class HLSDataExtractor(SatelliteDataExtractor):
         gdf = gpd.GeoDataFrame([1], geometry=[polygon], crs='EPSG:4326')
         return gdf.to_crs(target_crs).geometry.iloc[0]
 
-    def extract_from_polygon(self, polygon: Polygon) -> List[SatelliteDataPoint]:
+    def band_dataset_from_polygon(self, polygon: Polygon) -> xr.Dataset:
         """Extract data from a polygon"""
         # clip items to polygon
         target_crs = self._get_target_crs()
         polygon_projected = self.project_polygon(polygon, target_crs)
-        band_values = {}
+        bands_datasets = {}
         for band_name, file_url in self.bands_to_files.items():
             try:
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
                 clipped_dataset = dataset.rio.clip(polygon_projected, target_crs, drop=True)
-                band_values[band_name] = float(clipped_dataset.values)
-                    
+                bands_datasets[band_name] = clipped_dataset
             except Exception as e:
                 print(f"Error extracting band {band_name}: {e}")
                 continue
         
-        return band_values
+        merged_dataset = xr.Dataset(bands_datasets)
+        merged_dataset.rio.write_crs(target_crs, inplace=True)
+        merged_dataset = merged_dataset.expand_dims({'time': [self.date]})
+           
+        return merged_dataset
+
+    def get_elevation(self, lat: float, lon: float) -> float:
+        response = requests.get(f"https://epqs.nationalmap.gov/v1/json?x={lon}&y={lat}&wkid=4326&units=Feet&includeDate=false")
+        return response.json()['value']
+
+    def extract_from_polygon(self, polygon: Polygon) -> List[SatelliteDataPoint]:
+        """Extract data at multiple lat/lon points"""
+        data_points = []
+        band_dataset = self.band_dataset_from_polygon(polygon)
+        for row in band_dataset.to_dataframe().itertuples():
+            data_point = SatelliteDataPoint(
+                lat=row.y,
+                lon=row.x,
+                date=self.date,
+                item_id=self.item_id,
+                band_values=row.to_dict(),
+                metadata={
+                    'elevation': self.get_elevation(row.y, row.x)
+                }
+            )
+            data_points.append(data_point)
+        return data_points
 
 @dataclass 
 class GroundTruthProvider(ABC):
@@ -276,8 +301,6 @@ class SatelliteDataManager:
             )
             point.snow_depth = snow_depth
             point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
-            point.metadata['latitude'] = self.ground_truth_provider.latitude
-            point.metadata['longitude'] = self.ground_truth_provider.longitude
             point.metadata['elevation'] = self.ground_truth_provider.elevation
             
         return data_points
@@ -308,7 +331,7 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
         'fsca': [item.band_values.get('fsca', None) for item in snotel_hls_items],
         'item_id': [item.item_id for item in snotel_hls_items],
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
-        'latitude': [item.metadata['latitude'] for item in snotel_hls_items],
-        'longitude': [item.metadata['longitude'] for item in snotel_hls_items],
+        'latitude': [item.lat for item in snotel_hls_items],
+        'longitude': [item.lon for item in snotel_hls_items],
         'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
     }
