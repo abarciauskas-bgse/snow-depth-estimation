@@ -148,12 +148,17 @@ class HLSDataExtractor(SatelliteDataExtractor):
         else:
             raise ValueError(f"Invalid item type: {type(self.item)}")
     
-    def _get_target_crs_and_transform(self, lat: float, lon: float):
-        """Get target CRS and coordinate transformation"""
+    def _get_target_crs(self):
+        """Get target CRS"""
         # Use first available band to get CRS
         first_band = next(iter(self.bands_to_files.values()))
         dataset = rioxarray.open_rasterio(self.fs.open(first_band))
-        target_crs = dataset.rio.crs or 'EPSG:3857'
+        return dataset.rio.crs or 'EPSG:3857'
+    
+    def _get_target_crs_and_transform(self, lat: float, lon: float):
+        """Get target CRS and coordinate transformation"""
+        # Use first available band to get CRS
+        target_crs = self._get_target_crs()
         
         transformer = Transformer.from_crs("EPSG:4326", target_crs, always_xy=True)
         x, y = transformer.transform(lon, lat)
@@ -183,6 +188,28 @@ class HLSDataExtractor(SatelliteDataExtractor):
         
         return band_values
 
+    def project_polygon(polygon: Polygon, target_crs: str) -> Polygon:
+        """Project a polygon to a target CRS"""
+        gdf = gpd.GeoDataFrame([1], geometry=[polygon], crs='EPSG:4326')
+        return gdf.to_crs(target_crs).geometry.iloc[0]
+
+    def extract_from_polygon(self, polygon: Polygon) -> List[SatelliteDataPoint]:
+        """Extract data from a polygon"""
+        # clip items to polygon
+        target_crs = self._get_target_crs()
+        polygon_projected = self.project_polygon(polygon, target_crs)
+        band_values = {}
+        for band_name, file_url in self.bands_to_files.items():
+            try:
+                dataset = rioxarray.open_rasterio(self.fs.open(file_url))
+                clipped_dataset = dataset.rio.clip(polygon_projected, target_crs, drop=True)
+                band_values[band_name] = float(clipped_dataset.values)
+                    
+            except Exception as e:
+                print(f"Error extracting band {band_name}: {e}")
+                continue
+        
+        return band_values
 
 @dataclass 
 class GroundTruthProvider(ABC):
@@ -252,9 +279,9 @@ class SatelliteDataManager:
             
         return data_points
     
-    def extract_inference_data(self, points: List[tuple]) -> List[SatelliteDataPoint]:
+    def extract_inference_data(self, polygon: Polygon) -> List[SatelliteDataPoint]:
         """Extract satellite data for inference (no ground truth needed)"""
-        return self.extractor.extract_multiple_points(points)
+        return self.extractor.extract_from_polygon(polygon)
     
     def to_dataframe(self, data_points: List[SatelliteDataPoint]) -> pd.DataFrame:
         """Convert data points to pandas DataFrame for easy analysis"""
