@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 import requests
 from shapely.geometry import Polygon, Point
 import geopandas as gpd
-from typing import Optional, Dict, Any, Union, List
+from typing import Optional, Dict, Any, Union, List, Tuple
 import pandas as pd
 
 
@@ -88,10 +88,10 @@ class SatelliteDataExtractor(ABC):
         results = []
         for lat, lon in points:
             try:
-                band_values = self.extract_at_point(lat, lon)
+                band_values, x, y = self.extract_at_point(lat, lon)
                 data_point = SatelliteDataPoint(
-                    lat=lat,
-                    lon=lon,
+                    lat=y,
+                    lon=x,
                     date=self.date,
                     item_id=self.item_id,
                     band_values=band_values
@@ -165,7 +165,7 @@ class HLSDataExtractor(SatelliteDataExtractor):
         
         return target_crs, x, y
     
-    def extract_at_point(self, lat: float, lon: float) -> Dict[str, float]:
+    def extract_at_point(self, lat: float, lon: float) -> Tuple[Dict[str, float], float, float]:
         """Extract HLS band values at a specific point"""
         target_crs, x, y = self._get_target_crs_and_transform(lat, lon)
         band_values = {}
@@ -186,23 +186,25 @@ class HLSDataExtractor(SatelliteDataExtractor):
                 print(f"Error extracting band {band_name}: {e}")
                 continue
         
-        return band_values
+        return band_values, x, y
 
-    def project_polygon(polygon: Polygon, target_crs: str) -> Polygon:
+    def _project_polygon(self, polygon: Polygon, target_crs: str) -> Polygon:
         """Project a polygon to a target CRS"""
         gdf = gpd.GeoDataFrame([1], geometry=[polygon], crs='EPSG:4326')
         return gdf.to_crs(target_crs).geometry.iloc[0]
 
+    # todo: skip datasets where all values are 0 / fcsa is -9999
     def band_dataset_from_polygon(self, polygon: Polygon) -> xr.Dataset:
         """Extract data from a polygon"""
         # clip items to polygon
         target_crs = self._get_target_crs()
-        polygon_projected = self.project_polygon(polygon, target_crs)
+        # project polygon to target CRS
+        polygon_projected = self._project_polygon(polygon, target_crs)
         bands_datasets = {}
         for band_name, file_url in self.bands_to_files.items():
             try:
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
-                clipped_dataset = dataset.rio.clip(polygon_projected, target_crs, drop=True)
+                clipped_dataset = dataset.rio.clip([polygon_projected], target_crs, drop=True)
                 bands_datasets[band_name] = clipped_dataset
             except Exception as e:
                 print(f"Error extracting band {band_name}: {e}")
@@ -222,15 +224,23 @@ class HLSDataExtractor(SatelliteDataExtractor):
         """Extract data at multiple lat/lon points"""
         data_points = []
         band_dataset = self.band_dataset_from_polygon(polygon)
-        for row in band_dataset.to_dataframe().itertuples():
+        stacked = band_dataset.stack(point=['y', 'x'])
+        for i, point_coord in enumerate(stacked.point):
+            lat_val = float(point_coord['y'].values)
+            lon_val = float(point_coord['x'].values)
+            
+            # Extract all variable values at this point
+            band_values = {}
+            for var_name in band_dataset.data_vars:
+                band_values[var_name] = float(stacked[var_name].isel(point=i).values)                     
             data_point = SatelliteDataPoint(
-                lat=row.y,
-                lon=row.x,
+                lat=lat_val,
+                lon=lon_val,
                 date=self.date,
                 item_id=self.item_id,
-                band_values=row.to_dict(),
+                band_values=band_values,
                 metadata={
-                    'elevation': self.get_elevation(row.y, row.x)
+                    # 'elevation': self.get_elevation(lat_val, lon_val)
                 }
             )
             data_points.append(data_point)
@@ -252,7 +262,7 @@ class SNOTELProvider(GroundTruthProvider):
     station_triplet: str
     latitude: float
     longitude: float
-    elevation: float
+    # elevation: float
     
     def get_snow_depth(self, lat: float, lon: float, date: str) -> Optional[float]:
         """Get SNOTEL snow depth for the station"""
@@ -301,7 +311,7 @@ class SatelliteDataManager:
             )
             point.snow_depth = snow_depth
             point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
-            point.metadata['elevation'] = self.ground_truth_provider.elevation
+            # point.metadata['elevation'] = self.ground_truth_provider.elevation
             
         return data_points
     
@@ -333,5 +343,5 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
         'latitude': [item.lat for item in snotel_hls_items],
         'longitude': [item.lon for item in snotel_hls_items],
-        'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
+        # 'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
     }

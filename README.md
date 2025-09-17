@@ -6,18 +6,21 @@ source ski-project/bin/activate
 uv pip install -r requirements.txt
 ```
 
-# Short-term TODOs
+# Short-term todos
+
+- update existing training dataset with native projection + remove elevation column
+- update model with new training dataset/schema
+- skip inference on data that has -9999 for FSCA
+- run inference...
+
+# TODOs
 
 - organize notebooks + methodology
-- figure out if FMask is being interpreted correctly
+
+# Nice to haves:
+
+- maybe add back in elevation (can't use it while data is in native projection)
 - find out if there is a way to get longer history of SNOTEL data
-
-# TODOs:
-
-- Use historical landsat data
-  - https://registry.opendata.aws/usgs-landsat/
-  - STAC tutorial: https://code.usgs.gov/eros-user-services/accessing_landsat_data/tutorials/introduction-to-landsat-stac/-/blob/main/Landsat_STAC_Tutorial.ipynb?ref_type=heads#STAC-API
-  - STAC root: https://landsatlook.usgs.gov/stac-server/collections/
-  - homepage with tutorial: https://www.usgs.gov/landsat-missions/landsat-commercial-cloud-data-access
-- investigate B08 - some scenes have it and some don't
-- Use requester pays s3 access for landsat data
+- for HLS data
+  - figure out if FMask is being interpreted correctly
+  - investigate B08 - some scenes have it and some don't
