@@ -8,18 +8,18 @@ uv pip install -r requirements.txt
 
 # Short-term todos
 
-- update existing training dataset with native projection + remove elevation column
-- update model with new training dataset/schema
-- skip inference on data that has -9999 for FSCA
-- run inference...
+- Remove elevation column from RF model
+- run inference on some landsat items, estimate time
+- add more data
 
 # TODOs
 
 - organize notebooks + methodology
+- improve how -9999 FSCA is handled
 
 # Nice to haves:
 
-- maybe add back in elevation (can't use it while data is in native projection)
+- maybe add back in elevation (very slow to add via API)
 - find out if there is a way to get longer history of SNOTEL data
 - for HLS data
   - figure out if FMask is being interpreted correctly
