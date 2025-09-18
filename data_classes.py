@@ -201,6 +201,7 @@ class HLSDataExtractor(SatelliteDataExtractor):
         # project polygon to target CRS
         polygon_projected = self._project_polygon(polygon, target_crs)
         bands_datasets = {}
+
         for band_name, file_url in self.bands_to_files.items():
             try:
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
@@ -211,9 +212,8 @@ class HLSDataExtractor(SatelliteDataExtractor):
                 continue
         
         merged_dataset = xr.Dataset(bands_datasets)
-        merged_dataset.rio.write_crs(target_crs, inplace=True)
+        merged_dataset = merged_dataset.rio.reproject('EPSG:4326', inplace=True)
         merged_dataset = merged_dataset.expand_dims({'time': [self.date]})
-           
         return merged_dataset
 
     def get_elevation(self, lat: float, lon: float) -> float:
@@ -222,29 +222,13 @@ class HLSDataExtractor(SatelliteDataExtractor):
 
     def extract_from_polygon(self, polygon: Polygon) -> List[SatelliteDataPoint]:
         """Extract data at multiple lat/lon points"""
-        data_points = []
         band_dataset = self.band_dataset_from_polygon(polygon)
-        stacked = band_dataset.stack(point=['y', 'x'])
-        for i, point_coord in enumerate(stacked.point):
-            lat_val = float(point_coord['y'].values)
-            lon_val = float(point_coord['x'].values)
-            
-            # Extract all variable values at this point
-            band_values = {}
-            for var_name in band_dataset.data_vars:
-                band_values[var_name] = float(stacked[var_name].isel(point=i).values)                     
-            data_point = SatelliteDataPoint(
-                lat=lat_val,
-                lon=lon_val,
-                date=self.date,
-                item_id=self.item_id,
-                band_values=band_values,
-                metadata={
-                    # 'elevation': self.get_elevation(lat_val, lon_val)
-                }
-            )
-            data_points.append(data_point)
-        return data_points
+        df = band_dataset.to_dataframe()
+        # TODO: this hardcoding is a kludge for now. We should have a better way to handle this.
+        df = df[df['fsca'] != -9999]
+        # for index, row in df.iterrows():
+        #     df.loc[index, 'elevation'] = self.get_elevation(index[2], index[1])
+        return df
 
 @dataclass 
 class GroundTruthProvider(ABC):
@@ -262,7 +246,7 @@ class SNOTELProvider(GroundTruthProvider):
     station_triplet: str
     latitude: float
     longitude: float
-    # elevation: float
+    elevation: float
     
     def get_snow_depth(self, lat: float, lon: float, date: str) -> Optional[float]:
         """Get SNOTEL snow depth for the station"""
@@ -311,7 +295,7 @@ class SatelliteDataManager:
             )
             point.snow_depth = snow_depth
             point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
-            # point.metadata['elevation'] = self.ground_truth_provider.elevation
+            point.metadata['elevation'] = self.ground_truth_provider.elevation
             
         return data_points
     
@@ -343,5 +327,5 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
         'latitude': [item.lat for item in snotel_hls_items],
         'longitude': [item.lon for item in snotel_hls_items],
-        # 'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
+        'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
     }
