@@ -125,34 +125,29 @@ class HLSDataExtractor(SatelliteDataExtractor):
             all_bands = {link.split('/')[-1].split('.')[-2]: link for link in self.item.data_links()}
             return {k: v for k, v in all_bands.items() if k in self.LANDSAT_BANDS}
         elif isinstance(self.item, pystac.item.Item):
-            # Primary assets
-            primary_assets = {
-                asset_key: asset.get('alternate', {}).get('s3', {}).get('href') or asset['href']
-                for asset_key, asset in self.item.to_dict()['assets'].items()
-                if asset.get('alternate', {}).get('s3', {}).get('href') or asset.get('href')
-            }
-            
-            # Filter to only include LANDSAT_BANDS
-            filtered_assets = {k: v for k, v in primary_assets.items() if k in self.LANDSAT_BANDS}
-            
+            assets = self.item.to_dict()['assets']
+            asset_dict = {}
+            for asset_key in self.LANDSAT_BANDS.keys():
+                asset = assets.get(asset_key, {})
+                asset_dict[asset_key] = asset.get('alternate', {}).get('s3', {}).get('href') or asset.get('href', None)
             # Try to get FSCA (fractional snow cover) data
             try:
                 snow_url = self.item.self_href.replace('landsat-c2ard-sr', 'landsat-c2l3-fsca').replace('SR', 'SNOW')
                 snow_item = requests.get(snow_url).json()
                 if snow_item.get('assets', {}).get('viewable_snow', {}).get('alternate', {}).get('s3', {}).get('href'):
-                    filtered_assets['fsca'] = snow_item['assets']['viewable_snow']['alternate']['s3']['href']
+                    asset_dict['fsca'] = snow_item['assets']['viewable_snow']['alternate']['s3']['href']
             except Exception as e:
                 print(f"Could not retrieve FSCA data: {e}")
             
-            return filtered_assets
+            return asset_dict
         else:
             raise ValueError(f"Invalid item type: {type(self.item)}")
     
     def _get_target_crs(self):
         """Get target CRS"""
-        # Use first available band to get CRS
-        first_band = next(iter(self.bands_to_files.values()))
-        dataset = rioxarray.open_rasterio(self.fs.open(first_band))
+        # Use blue band to get CRS
+        blue_band = self.bands_to_files['blue']
+        dataset = rioxarray.open_rasterio(self.fs.open(blue_band))
         return dataset.rio.crs or 'EPSG:3857'
     
     def _get_target_crs_and_transform(self, lat: float, lon: float):
@@ -203,6 +198,9 @@ class HLSDataExtractor(SatelliteDataExtractor):
         bands_datasets = {}
 
         for band_name, file_url in self.bands_to_files.items():
+            if file_url is None:
+                bands_datasets[band_name] = xr.DataArray()
+                continue
             try:
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
                 clipped_dataset = dataset.rio.clip([polygon_projected], target_crs, drop=True)
@@ -226,6 +224,8 @@ class HLSDataExtractor(SatelliteDataExtractor):
         df = band_dataset.to_dataframe()
         # TODO: this hardcoding is a kludge for now. We should have a better way to handle this.
         df = df[df['fsca'] != -9999]
+        df = df.reset_index().drop(['band', 'spatial_ref'], axis=1)
+        df = df.rename(columns={"x": "longitude", "y": "latitude"})
         # for index, row in df.iterrows():
         #     df.loc[index, 'elevation'] = self.get_elevation(index[2], index[1])
         return df

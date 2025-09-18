@@ -8,9 +8,6 @@ uv pip install -r requirements.txt
 
 # Short-term todos
 
-- update existing training dataset with native projection + remove elevation column
-- update model with new training dataset/schema
-- skip inference on data that has -9999 for FSCA
 - run inference...
 
 # TODOs
