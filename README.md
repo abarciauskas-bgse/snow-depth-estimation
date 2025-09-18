@@ -6,16 +6,12 @@ source ski-project/bin/activate
 uv pip install -r requirements.txt
 ```
 
-# Short-term todos
-
-- Remove elevation column from RF model
-- run inference on some landsat items, estimate time
-- add more data
-
 # TODOs
 
+- run inference on multiple items
+- decide methodology for comparison across time
+- add more data
 - organize notebooks + methodology
-- improve how -9999 FSCA is handled
 
 # Nice to haves:
 
