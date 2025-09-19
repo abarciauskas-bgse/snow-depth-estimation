@@ -8,9 +8,16 @@ uv pip install -r requirements.txt
 
 # TODOs
 
-- run inference on multiple items
+- IN-PROGRESS: run inference on multiple items
 - decide methodology for comparison across time
-- add more data
+  - one idea: calculate average snow depth for each month across pixels and compare across season-years
+- add more data to model
+- Understand how to evaluate model
+  - feature importances (waterfall plot)
+  - MSE
+  - OOB Error
+  - Pearson
+  - partial dependence
 - organize notebooks + methodology
 
 # Nice to haves:
