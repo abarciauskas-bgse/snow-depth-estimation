@@ -1,25 +1,27 @@
 # Snow Depth Estimation
 
+This projects models and estimates snow depth using SNOTEL snow depth as ground truth alongside historical Landsat data. It collects coincident SNOTEL ground truth snow depth with Landsat band data and trains a model which is then applied to historical and spatially extensive Landsat data for estimation.
+
+## Setup
+
 ```
 uv venv ski-project
 source ski-project/bin/activate
 uv pip install -r requirements.txt
 ```
 
-# TODOs
+## Methodology
 
-- In progress: organize notebooks + methodology
-- Add more model evaluation
-  - feature importances (waterfall plot)
-  - MSE
-  - OOB Error
-  - Pearson
-  - partial dependence
+See notebooks, ordered according to methodological order.
 
-# Nice to haves:
+## Limitations
 
-- maybe add back in elevation (very slow to add via API)
-- find out if there is a way to get longer history of SNOTEL data
-- for HLS data
-  - figure out if FMask is being interpreted correctly
-  - investigate B08 - some scenes have it and some don't
+At time of writing, training data and predicted area are limited to a few sites around Mt. Rainer in order to evaluate snow depth historically over the Crystal Mountain ski area. 
+
+The model is a random forest model.
+
+In future work, I wish to:
+* grow the training data set, both in number of sites and potential data sources
+  * for example, elevation data or LiDAR data
+* areas of interest for prediction (i.e. other ski resorts or snowy regions)
+* models empoloyed (i.e. employ a computer vison model)

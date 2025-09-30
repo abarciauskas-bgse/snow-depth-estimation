@@ -1,5 +1,9 @@
 from shapely.geometry import shape, Point
 import json
+from typing import Any
+
+def flatten_list(list_of_lists: list[list[Any]]) -> list[Any]:
+    return [item for sublist in list_of_lists for item in sublist]
 
 def check_daily_coverage(rows, target_polygon):
     # Create points from your DataFrame

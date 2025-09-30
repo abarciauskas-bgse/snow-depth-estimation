@@ -1,6 +1,4 @@
 __pycache__
-snotel_data.parquet
 *.pkl
 .ipynb_checkpoints/
-results.parquet
-predictions.parquet
+*.parquet

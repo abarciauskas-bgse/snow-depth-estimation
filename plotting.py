@@ -1,4 +1,5 @@
 import base64
+import folium
 import fsspec
 import io
 from PIL import Image
@@ -11,6 +12,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import math
 import pandas as pd
+from IPython.display import HTML
 
 def get_item_bounds(item: earthaccess.DataGranule | pystac.item.Item):
     if isinstance(item, earthaccess.DataGranule):
@@ -66,6 +68,39 @@ def rgb_image_str(red, green, blue):
     rgb_image.save(img_buffer, format='PNG')
     img_buffer.seek(0)
     return base64.b64encode(img_buffer.read()).decode()
+
+def plot_landsat_and_station(fs: fsspec.AbstractFileSystem, landsat_item: pystac.item.Item, latitude: float, longitude: float):
+    # Create the map
+    m = folium.Map(
+        location=[latitude, longitude],
+        zoom_start=7,
+        tiles='OpenStreetMap'
+    )
+    
+    red = get_band_data(fs, landsat_item, 'red')
+    green = get_band_data(fs, landsat_item, 'green')
+    blue = get_band_data(fs, landsat_item, 'blue')
+    folium.raster_layers.ImageOverlay(
+        name='True Color Image',
+        image=f'data:image/png;base64,{rgb_image_str(red, green, blue)}',
+        bounds=get_item_bounds(landsat_item),
+        opacity=0.8,
+        popup='HLS True Color Image'
+    ).add_to(m)
+    
+    folium.CircleMarker(
+        location=[latitude, longitude],
+        radius=5,
+        color='green',
+        fill=True,
+        fillOpacity=0.7
+    ).add_to(m)
+    
+    # Display with custom size using HTML
+    html = m._repr_html_()
+    html_with_size = f'<div style="width: 500px; height: 500px;">{html}</div>'
+    return HTML(html_with_size)    
+
 
 def create_season_maps_grid(df):
     seasons = sorted(df['snow_season'].unique())

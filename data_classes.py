@@ -166,16 +166,13 @@ class HLSDataExtractor(SatelliteDataExtractor):
         band_values = {}
         
         for band_name, file_url in self.bands_to_files.items():
+            if file_url is None:
+                band_values[band_name] = None
+                continue            
             try:
                 dataset = rioxarray.open_rasterio(self.fs.open(file_url))
                 value = dataset.sel(x=x, y=y, method='nearest').values[0]
-                
-                # Handle special cases
-                if band_name == 'Fmask':
-                    # Extract snow flag from Fmask
-                    band_values['is_snow_fmask'] = float((value & 16) > 0)
-                else:
-                    band_values[band_name] = float(value)
+                band_values[band_name] = float(value)
                     
             except Exception as e:
                 print(f"Error extracting band {band_name}: {e}")
@@ -214,10 +211,6 @@ class HLSDataExtractor(SatelliteDataExtractor):
         merged_dataset = merged_dataset.expand_dims({'time': [self.date]})
         return merged_dataset
 
-    def get_elevation(self, lat: float, lon: float) -> float:
-        response = requests.get(f"https://epqs.nationalmap.gov/v1/json?x={lon}&y={lat}&wkid=4326&units=Feet&includeDate=false")
-        return response.json()['value']
-
     def extract_from_polygon(self, polygon: Polygon) -> List[SatelliteDataPoint]:
         """Extract data at multiple lat/lon points"""
         band_dataset = self.band_dataset_from_polygon(polygon)
@@ -226,8 +219,6 @@ class HLSDataExtractor(SatelliteDataExtractor):
         df = df[df['fsca'] != -9999]
         df = df.reset_index().drop(['band', 'spatial_ref'], axis=1)
         df = df.rename(columns={"x": "longitude", "y": "latitude"})
-        # for index, row in df.iterrows():
-        #     df.loc[index, 'elevation'] = self.get_elevation(index[2], index[1])
         return df
 
 @dataclass 
@@ -246,7 +237,6 @@ class SNOTELProvider(GroundTruthProvider):
     station_triplet: str
     latitude: float
     longitude: float
-    elevation: float
     
     def get_snow_depth(self, lat: float, lon: float, date: str) -> Optional[float]:
         """Get SNOTEL snow depth for the station"""
@@ -295,7 +285,6 @@ class SatelliteDataManager:
             )
             point.snow_depth = snow_depth
             point.metadata['station_triplet'] = self.ground_truth_provider.station_triplet
-            point.metadata['elevation'] = self.ground_truth_provider.elevation
             
         return data_points
     
@@ -327,5 +316,5 @@ def for_parquet_insert(snotel_hls_items: list[SatelliteDataPoint]) -> dict[str, 
         'station_triplet': [item.metadata['station_triplet'] for item in snotel_hls_items],
         'latitude': [item.lat for item in snotel_hls_items],
         'longitude': [item.lon for item in snotel_hls_items],
-        'elevation': [item.metadata['elevation'] for item in snotel_hls_items],
+        'elevation': [item.metadata.get('elevation', None) for item in snotel_hls_items],
     }
