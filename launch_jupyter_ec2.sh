@@ -8,7 +8,7 @@ VPC_ID="vpc-049bdcfd473c6af56"
 KEY_NAME="barciaai"
 INSTANCE_TYPE="r7i.large"
 AMI_ID="ami-01102c5e8ab69fb75"
-YOUR_IP=$(echo curl -s https://api.ipify.org)
+YOUR_IP=echo $(curl -s https://api.ipify.org)/32
 INSTANCE_NAME="aimees-jupyter"
 
 # Create user data file
