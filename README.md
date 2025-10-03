@@ -16,6 +16,21 @@ The project utilizes a technical stack including:
 - **Cloud Compute**: AWS EC2 for compute with AWS in-region access to Landsat data
 - **Parallel Processing**: ThreadPoolExecutor for data extraction
 
+## Key Results and Findings
+
+- Generated historical snow depth estimates for Crystal Mountain ski area
+- Created map visuals of snow depth across the ski area
+- Demonstrated ability to track snow depth changes over multiple decades (1982-2024)
+
+![](./images/timeseries.png)
+![](./images/maps1.png)
+![](./images/maps2.png)
+![](./images/maps3.png)
+![](./images/maps4.png)
+![](./images/maps5.png)
+![](./images/maps6.png)
+
+
 ## Methodology
 
 ### 1. Data Collection and Preparation
@@ -50,13 +65,13 @@ The project utilizes a technical stack including:
 1. **Linear Regression Baseline**: 
    - Used as baseline model for comparison
    - Excluded coastal and FSCA features due to high missing data
-   - Achieved Pearson correlation coefficient of 0.74
+   - Achieved Pearson correlation coefficient of 0.68
 
 2. **Random Forest Model**:
    - Included all available features including coastal and FSCA
    - Used 100 estimators with random state for reproducibility
-   - Achieved Pearson correlation coefficient of 0.90
-   - Mean squared error of 0.011 (improvement over linear model's 0.028)
+   - Achieved Pearson correlation coefficient of 0.92
+   - Mean squared error of 0.008 (improvement over linear model's 0.029)
 
 ### 3. Inference and Application
 
@@ -66,12 +81,6 @@ Applied trained random forest model to Crystal Mountain ski area polygon by:
 - Grouping overlapping pixels by day, latitude, and longitude and selecting the max snow depth per pixel per day
 - Verifing spatial coverage (>99% coverage maintained) for each day
 - Aggregating via a seasonal sum of monthly averages for visualization
-
-## Key Results and Findings
-
-- Generated historical snow depth estimates for Crystal Mountain ski area
-- Created map visuals of snow depth across the ski area
-- Demonstrated ability to track snow depth changes over multiple decades (1982-2024)
 
 ### Model Performance
 - **Random Forest Model**: Achieved strong performance with Pearson correlation of 0.90 and MSE of 0.011
